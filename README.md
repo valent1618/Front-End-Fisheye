@@ -1,6 +1,7 @@
-# Base de code du projet P6 - Parcours Front-end
+Fisheye is a fake platform for photographers who want to expose their projects and propose their services.
 
-## Démarrer le projet
+A modal to contact each photographer is display when we click on the contact button.
 
-Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.
+Designed for everyone, including the visually impaired.
 
+HTML / CSS (Sass) / JS
