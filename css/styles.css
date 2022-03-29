@@ -1,5 +1,9 @@
 /* - Utils - */
 /* - Base - */
+* {
+  transition: 0.2s;
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -10,33 +14,42 @@ h1 {
 }
 
 /* - Components - */
-.photographer_section article {
+.user-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.photographer_section article img {
+.user-card a,
+.user-card div {
+  text-align: center;
+}
+.user-card a {
+  text-decoration: none;
+}
+.user-card a img {
   object-fit: cover;
   height: 200px;
   width: 200px;
   border-radius: 50%;
 }
-.photographer_section article h2 {
-  margin-bottom: 3px;
+.user-card a h2 {
+  margin: 10px 0 0 0;
   color: #d3573c;
+  font-weight: normal;
   font-size: 36px;
   white-space: nowrap;
 }
-.photographer_section article h2,
-.photographer_section article h3 {
-  font-weight: normal;
+.user-card a:hover img, .user-card a:focus img {
+  transform: scale(1.05);
 }
-.photographer_section article h3,
-.photographer_section article p {
+.user-card p {
   margin: 3px 0;
 }
-.photographer_section article .price {
+.user-card .location {
+  font-size: 1.2em;
+}
+.user-card .price {
   color: #757575;
 }
 
@@ -120,11 +133,26 @@ form input {
 
 .photograph-header {
   background-color: #fafafa;
-  height: 300px;
   margin: 0 100px;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-
-.contact_button {
+.photograph-header article h1 {
+  margin: 0;
+  color: #d3573c;
+  font-size: 4em;
+  font-weight: normal;
+}
+.photograph-header article .location {
+  margin: 7px 0;
+  font-size: 1.5em;
+}
+.photograph-header article .slogan {
+  color: #525252;
+}
+.photograph-header .contact_button {
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -135,6 +163,12 @@ form input {
   background-color: #901c1c;
   border-radius: 5px;
   cursor: pointer;
+}
+.photograph-header img {
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=styles.css.map */

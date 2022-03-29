@@ -1,18 +1,46 @@
 .photograph-header {
   background-color: #fafafa;
-  height: 300px;
   margin: 0 100px;
-}
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-.contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 70px;
-  border: none;
-  background-color: $color-primary;
-  border-radius: 5px;
-  cursor: pointer;
+  article {
+    h1 {
+      margin: 0;
+      color: $color-primary--light;
+      font-size: 4em;
+      font-weight: normal;
+    }
+
+    .location {
+      margin: 7px 0;
+      font-size: 1.5em;
+    }
+
+    .slogan {
+      color: $color-secondary;
+    }
+  }
+
+  .contact_button {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 11px;
+    width: 170px;
+    height: 70px;
+    border: none;
+    background-color: $color-primary;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+  }
 }
