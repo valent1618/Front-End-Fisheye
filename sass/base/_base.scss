@@ -3,15 +3,6 @@ body {
   margin: 0;
 }
 
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 90px;
-}
-
 h1 {
   color: $color-primary;
-  margin-right: 100px;
 }

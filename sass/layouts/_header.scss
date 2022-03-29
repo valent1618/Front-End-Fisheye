@@ -1,4 +1,11 @@
-.logo {
-  height: 50px;
-  margin-left: 100px;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  padding: 25px calc($padding-side + 50px);
+
+  .logo {
+    height: 50px;
+  }
 }
