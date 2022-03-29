@@ -1,3 +1,5 @@
-async function getPhotographers() {
-  return fetch("data/photographers.json").then((response) => response.json());
+async function getPhotographers(source) {
+  return fetch(`${source}/photographers.json`).then((response) =>
+    response.json()
+  );
 }
