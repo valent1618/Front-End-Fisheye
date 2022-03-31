@@ -22,10 +22,53 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">
+        <button class="button contact_button" onclick="displayModal()">
           Contactez-moi
         </button>
       </div>
+      <div class="select-order">
+        <label for="order-by">Trier par</label>
+        <button
+          class="button select_button"
+          id="order-by"
+          aria-haspopup="listbox"
+          aria-expanded="collapsed"
+        >
+          <ul
+            role="listbox"
+            id="listbox-order-media"
+            aria-activedescendant="popularité"
+          >
+            <li
+              role="option"
+              id="popularité"
+              class="order-media"
+              aria-selected="true"
+            >
+              Popularité
+            </li>
+            <div class="separator sep-first"></div>
+            <li
+              role="option"
+              id="date"
+              class="order-media"
+              aria-selected="false"
+            >
+              Date
+            </li>
+            <div class="separator sep-second"></div>
+            <li
+              role="option"
+              id="titre"
+              class="order-media"
+              aria-selected="false"
+            >
+              Titre
+            </li>
+          </ul>
+        </button>
+      </div>
+      <div class="like-price"></div>
     </main>
     <div id="contact_modal">
       <div class="modal">
@@ -42,6 +85,7 @@
         </form>
       </div>
     </div>
+    <script src="../scripts/components/select-order.js"></script>
     <script src="../scripts/utils/fetchPhotographers.js"></script>
     <script src="../scripts/utils/contactForm.js"></script>
     <script src="../scripts/factories/photographer.js"></script>

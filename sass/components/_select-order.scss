@@ -1,0 +1,110 @@
+.select-order {
+  position: relative;
+  margin: 30px 0;
+  display: flex;
+  align-items: flex-start;
+
+  label {
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .select_button {
+    box-shadow: 0 0px 0px grey;
+    position: absolute;
+    top: -15px;
+    left: 100px;
+    display: flex;
+    gap: 25px;
+    font-size: 18px;
+    text-align: start;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+
+      .separator {
+        position: relative;
+        margin: 0px -10px;
+        width: 0;
+      }
+
+      .sep-first {
+        order: 2;
+      }
+
+      .sep-second {
+        order: 4;
+      }
+    }
+
+    #popularité {
+      order: 1;
+    }
+
+    #date {
+      order: 3;
+    }
+
+    #titre {
+      order: 5;
+    }
+
+    &::after {
+      content: "";
+      transition: 0.2s;
+      position: relative;
+      top: 7px;
+      width: 7px;
+      height: 7px;
+      border: solid;
+      border-width: 3px 3px 0 0;
+      border-color: white;
+      transform-origin: 7px 3.5px;
+      transform: rotate(135deg);
+    }
+
+    &:hover {
+      background-color: $color-primary;
+      color: white;
+    }
+  }
+
+  .select_button[aria-expanded="collapsed"] {
+    li {
+      display: none;
+    }
+    li[aria-selected="true"] {
+      display: block;
+    }
+  }
+
+  .select_button[aria-expanded="expanded"] {
+    box-shadow: 0 5px 5px grey;
+
+    ul {
+      gap: 12px;
+
+      li {
+        display: block;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      .separator {
+        width: 160%;
+        height: 1px;
+        background-color: white;
+      }
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+  }
+}
