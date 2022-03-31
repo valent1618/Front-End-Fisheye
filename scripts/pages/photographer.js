@@ -29,9 +29,14 @@ async function getData() {
 
 async function displayData(photographer, media) {
   const photographHeader = document.querySelector(".photograph-header");
+  const likePrice = document.querySelector(".like-price");
 
-  photographHeader.prepend(photographerFactory(photographer).getContactCard());
+  photographHeader.prepend(
+    photographerFactory(photographer).getInfoPhotographHeader()
+  );
   photographHeader.appendChild(photographerFactory(photographer).img);
+
+  likePrice.appendChild(photographerFactory(photographer).tjm);
 }
 
 async function init() {

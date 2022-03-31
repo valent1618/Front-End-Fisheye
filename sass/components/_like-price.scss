@@ -1,0 +1,17 @@
+.like-price {
+  position: fixed;
+  bottom: 0;
+  right: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $color-primary--light;
+  border-radius: $radius $radius 0 0;
+  padding: 10px 25px;
+  color: black;
+
+  .price {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+}
