@@ -8,7 +8,7 @@ async function getData() {
 
   // Déclare les variables qui vont accueillir les datas
   let goodPhotographer = {};
-  let goodMedia = [];
+  let goodMedias = [];
 
   // Parcours les photographes pour trouver celui qui correspond à l'id de l'URL
   photographers.forEach((photographer) => {
@@ -20,15 +20,16 @@ async function getData() {
   // Parcours les medias pour trouver ceux qui correspondes à l'id de l'URL
   media.forEach((picture) => {
     if (picture.photographerId === idPhotograph) {
-      goodMedia.push(picture);
+      goodMedias.push(picture);
     }
   });
 
-  return { goodPhotographer, goodMedia };
+  return { goodPhotographer, goodMedias };
 }
 
-async function displayData(photographer, media) {
+async function displayData(photographer, medias) {
   const photographHeader = document.querySelector(".photograph-header");
+  const mediaContainer = document.querySelector(".media-container");
   const likePrice = document.querySelector(".like-price");
 
   photographHeader.prepend(
@@ -36,12 +37,16 @@ async function displayData(photographer, media) {
   );
   photographHeader.appendChild(photographerFactory(photographer).img);
 
+  medias.forEach((media) =>
+    mediaContainer.appendChild(mediaFactory(media).getGalleryCard())
+  );
+
   likePrice.appendChild(photographerFactory(photographer).tjm);
 }
 
 async function init() {
-  const { goodPhotographer, goodMedia } = await getData();
-  displayData(goodPhotographer, goodMedia);
+  const { goodPhotographer, goodMedias } = await getData();
+  displayData(goodPhotographer, goodMedias);
 }
 
 init();
