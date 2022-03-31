@@ -1,0 +1,31 @@
+.gallery-card {
+  width: 350px;
+
+  img,
+  video {
+    object-fit: cover;
+    height: 300px;
+    width: 100%;
+    border-radius: $radius;
+  }
+
+  .info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    color: $color-primary;
+    font-size: 24px;
+
+    .img-title,
+    .like-number {
+      margin: 10px 0;
+    }
+
+    .like-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+  }
+}
