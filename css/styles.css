@@ -15,6 +15,22 @@ h1 {
   color: #901c1c;
 }
 
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes expand {
+  from {
+    height: 0;
+  }
+  to {
+    height: 80%;
+  }
+}
 /* - Components - */
 .user-card {
   display: flex;
@@ -54,6 +70,34 @@ h1 {
 }
 .user-card .price {
   color: #757575;
+}
+
+.gallery-card {
+  width: 350px;
+}
+.gallery-card img,
+.gallery-card video {
+  object-fit: cover;
+  height: 300px;
+  width: 100%;
+  border-radius: 5px;
+}
+.gallery-card .info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  color: #901c1c;
+  font-size: 24px;
+}
+.gallery-card .info-container .img-title,
+.gallery-card .info-container .like-number {
+  margin: 10px 0;
+}
+.gallery-card .info-container .like-container {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .button {
@@ -190,7 +234,7 @@ h1 {
   display: block;
 }
 .select-order .select_button[aria-expanded=expanded] {
-  box-shadow: 0 5px 5px grey;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 .select-order .select_button[aria-expanded=expanded] ul {
   gap: 12px;
@@ -224,18 +268,26 @@ header .logo {
 
 #contact_modal {
   display: none;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 -100px;
+  backdrop-filter: blur(5px);
 }
 
 .modal {
   border-radius: 5px;
   background-color: #db8876;
+  height: 0;
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 35px;
-  margin: auto;
+  margin: 50px auto;
 }
 
 .modal header {
@@ -286,6 +338,13 @@ form input {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 150px;
   margin: 100px -50px;
+}
+
+.media-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 100px;
+  margin: 50px 0;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -3,9 +3,11 @@
 
 /* - Base - */
 @import "./base/base";
+@import "./base/animations";
 
 /* - Components - */
 @import "./components/user-card";
+@import "./components/gallery-card";
 @import "./components/button";
 @import "./components/photograph-header";
 @import "./components/like-price";
