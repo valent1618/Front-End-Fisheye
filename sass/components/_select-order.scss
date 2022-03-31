@@ -83,7 +83,7 @@
   }
 
   .select_button[aria-expanded="expanded"] {
-    box-shadow: 0 5px 5px grey;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 
     ul {
       gap: 12px;
