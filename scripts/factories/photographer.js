@@ -24,6 +24,12 @@ function photographerFactory(data) {
   slogan.className = "slogan";
   slogan.setAttribute("aria-label", "Slogan");
 
+  // create p for the price
+  const tjm = document.createElement("p");
+  tjm.textContent = `${price}€ / jour`;
+  tjm.className = "price";
+  tjm.setAttribute("aria-label", "Prix par jour");
+
   // create user card for index
   function getUserCardDOM() {
     // add class to article
@@ -46,16 +52,13 @@ function photographerFactory(data) {
     link.appendChild(img);
     link.appendChild(h2);
 
-    // create p for the price
-    const tjm = document.createElement("p");
-    tjm.textContent = `${price}€/jour`;
-    tjm.className = "price";
-    tjm.setAttribute("aria-label", "Prix par jour");
-
     // Put location, slogan and price into the paragraph
     paragraph.appendChild(location);
     paragraph.appendChild(slogan);
     paragraph.appendChild(tjm);
+
+    // remove space in tjm
+    tjm.textContent = `${price}€/jour`;
 
     // Put link and paragraph into the article
     article.appendChild(link);
@@ -65,7 +68,7 @@ function photographerFactory(data) {
   }
 
   // create article for the header of page photographer
-  function getContactCard() {
+  function getInfoPhotographHeader() {
     // add aria-label
     article.setAttribute("aria-label", `Information sur ${name}`);
 
@@ -86,5 +89,5 @@ function photographerFactory(data) {
     return article;
   }
 
-  return { getUserCardDOM, getContactCard, img };
+  return { getUserCardDOM, getInfoPhotographHeader, img, tjm };
 }
