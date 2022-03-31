@@ -21,7 +21,7 @@
 
     h2 {
       margin: 10px 0 0 0;
-      color: $color-primary--light;
+      color: $color-secondary;
       font-weight: normal;
       font-size: 36px;
       white-space: nowrap;
@@ -34,14 +34,15 @@
   }
 
   p {
+    font-size: 10px;
     margin: 3px 0;
   }
 
   .location {
-    font-size: 1.2em;
+    font-size: 13px;
   }
 
   .price {
-    color: $color-secondary--light;
+    color: $color-text--extra-light;
   }
 }

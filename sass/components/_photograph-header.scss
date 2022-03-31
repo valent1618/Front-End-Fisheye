@@ -1,0 +1,36 @@
+.photograph-header {
+  background-color: $color-bg--light;
+  border-radius: $radius;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+
+  article {
+    h1 {
+      margin: 0;
+      color: $color-secondary;
+      font-size: 64px;
+      font-weight: normal;
+    }
+
+    .location {
+      margin: 7px 0;
+      font-size: 24px;
+    }
+
+    .slogan {
+      font-size: 18px;
+      color: $color-text--light;
+    }
+  }
+
+  img {
+    flex-shrink: 0;
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+  }
+}
