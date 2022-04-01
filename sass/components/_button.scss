@@ -1,15 +1,26 @@
+button {
+  cursor: pointer;
+}
+
 .button {
   font-size: 20px;
   font-weight: bold;
   color: white;
-  padding: 20px;
+  padding: 23px 20px;
   border: none;
   background-color: $color-primary;
   border-radius: $radius;
-  cursor: pointer;
+}
+
+.contact_button:hover {
+  background-color: $color-primary--light;
+  color: black;
+}
+
+.form_button {
+  padding: 20px 50px;
 
   &:hover {
-    background-color: $color-primary--light;
-    color: black;
+    opacity: 0.8;
   }
 }
