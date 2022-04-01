@@ -16,11 +16,15 @@
   </head>
   <body>
     <header role="banner">
-      <a href="../index.html">
+      <a
+        href="../index.html"
+        aria-label="Page d'accueil Fisheye"
+        class="header-link"
+      >
         <img
           src="../assets/images/logo.png"
           class="logo"
-          alt="Fisheye Home page"
+          alt="Logo de Fisheye"
         />
       </a>
     </header>
@@ -78,19 +82,38 @@
       <div class="like-price"></div>
     </main>
     <div id="contact_modal">
-      <div class="modal">
+      <dialog class="modal" aria-labelledby="contact-title">
         <header>
-          <h2>Contactez-moi</h2>
-          <img src="../assets/icons/close.svg" onclick="closeModal()" />
+          <h1 id="contact-title">Contactez-moi</h1>
+          <button onclick="closeModal()" aria-label="Ferme la modal">
+            <img
+              src="../assets/icons/close.svg"
+              alt="Croix pour fermer la modal"
+            />
+          </button>
         </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
+        <form class="contact-form" name="contact">
+          <div class="input-container">
+            <label for="first-name">Prénom</label>
+            <input type="text" id="first-name" name="Prénom" required />
           </div>
-          <button class="contact_button">Envoyer</button>
+          <div class="input-container">
+            <label for="last-name">Nom</label>
+            <input type="text" id="last-name" name="Nom" />
+          </div>
+          <div class="input-container">
+            <label for="mail">Email</label>
+            <input type="email" id="mail" name="Email" required />
+          </div>
+          <div class="input-container">
+            <label for="message">Votre message</label>
+            <textarea id="message" name="Message" rows="3" required></textarea>
+          </div>
+          <button class="button form_button" aria-label="Envois le formulaire">
+            Envoyer
+          </button>
         </form>
-      </div>
+      </dialog>
     </div>
     <script src="../scripts/components/select-order.js"></script>
     <script src="../scripts/utils/fetchPhotographers.js"></script>
