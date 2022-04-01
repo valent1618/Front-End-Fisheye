@@ -1,6 +1,7 @@
 function mediaFactory(data) {
   const { photographerId, title, image, video, likes } = data;
 
+  // Create variable source depend of the media
   let source = image
     ? `../assets/photos/${photographerId}/${image}`
     : `../assets/photos/${photographerId}/${video}`;
@@ -14,7 +15,7 @@ function mediaFactory(data) {
   img.setAttribute("src", source);
   img.setAttribute("alt", `Photo de ${title}`);
 
-  // create video
+  // create video and prevent the not support of HTML5
   const vid = document.createElement("video");
   vid.innerHTML = `<source src=${source} type="video/mp4">
   <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici <a href=${source}>un lien pour télécharger la vidéo</a>.</p>`;
@@ -53,7 +54,6 @@ function mediaFactory(data) {
     infoContainer.appendChild(likeContainer);
 
     // put image (or video) and infoContainer into the article
-
     image ? article.appendChild(img) : article.appendChild(vid);
     article.appendChild(infoContainer);
 

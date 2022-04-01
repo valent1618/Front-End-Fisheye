@@ -1,23 +1,21 @@
 async function getData() {
-  // Récupère les datas des photographes et des médias
+  // Get photographers and media data
   const { photographers, media } = await getPhotographers("../data");
 
-  // Récupère l'id du photographe
+  // Get id of the photographer selected with URL param
   let params = new URLSearchParams(document.location.search);
   let idPhotograph = parseInt(params.get("id"), 10);
 
-  // Déclare les variables qui vont accueillir les datas
+  // Create variable for put the datas
   let goodPhotographer = {};
   let goodMedias = [];
 
-  // Parcours les photographes pour trouver celui qui correspond à l'id de l'URL
+  // Get only the data of the photographer selected
   photographers.forEach((photographer) => {
     if (photographer.id === idPhotograph) {
       goodPhotographer = photographer;
     }
   });
-
-  // Parcours les medias pour trouver ceux qui correspondes à l'id de l'URL
   media.forEach((picture) => {
     if (picture.photographerId === idPhotograph) {
       goodMedias.push(picture);
@@ -31,21 +29,30 @@ async function displayData(photographer, medias) {
   const photographHeader = document.querySelector(".photograph-header");
   const mediaContainer = document.querySelector(".media-container");
   const likePrice = document.querySelector(".like-price");
+  const contactTitle = document.querySelector("#contact-title");
 
+  // Completed the photograph header with the data
   photographHeader.prepend(
     photographerFactory(photographer).getInfoPhotographHeader()
   );
   photographHeader.appendChild(photographerFactory(photographer).img);
 
+  // Completed the gallery with the data
   medias.forEach((media) =>
     mediaContainer.appendChild(mediaFactory(media).getGalleryCard())
   );
 
+  // Add price to the like price
   likePrice.appendChild(photographerFactory(photographer).tjm);
+
+  // Add name of the photographer to the contact title
+  contactTitle.innerHTML = `Contactez-moi<br>${photographer.name}`;
 }
 
 async function init() {
+  // Get the data of the photographer previously selected
   const { goodPhotographer, goodMedias } = await getData();
+  // And display it
   displayData(goodPhotographer, goodMedias);
 }
 

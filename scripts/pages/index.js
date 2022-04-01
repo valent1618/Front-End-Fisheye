@@ -1,16 +1,19 @@
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
+  // For each photographer
   photographers.forEach((photographer) => {
     photographersSection.appendChild(
+      // Display the card create into the factory
       photographerFactory(photographer).getUserCardDOM()
     );
   });
 }
 
 async function init() {
-  // Récupère les datas des photographes
+  // Get the photographers data
   const { photographers } = await getPhotographers("data");
+  // And display it
   displayData(photographers);
 }
 
