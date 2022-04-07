@@ -2,12 +2,46 @@
   transition: 0.2s;
 }
 
+// custom scrollbar
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: $radius;
+  background: rgba(144, 28, 28, 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(144, 28, 28, 0.8);
+}
+
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
   padding: 0 100px;
 }
 
+h1, h2, h3 {
+  font-weight: normal;
+  line-height: 1.1;
+}
+
 h1 {
+  font-size: 64px;
   color: $color-primary;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
 }
