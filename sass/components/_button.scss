@@ -1,10 +1,11 @@
 button {
   cursor: pointer;
+  border: none;
 }
 
 .button {
-  font-size: 20px;
   font-weight: bold;
+  font-size: 18px;
   color: white;
   padding: 23px 20px;
   border: none;
@@ -12,15 +13,30 @@ button {
   border-radius: $radius;
 }
 
-.contact_button:hover {
-  background-color: $color-primary--light;
-  color: black;
+.contact_button {
+  font-size: 20px;
+  padding: 23px 15px;
+
+  &:hover, &:focus {
+    background-color: $color-primary--light;
+    color: black;
+  }
 }
+
 
 .form_button {
   padding: 20px 50px;
 
-  &:hover {
+  &:hover, &:focus {
     opacity: 0.8;
+  }
+}
+
+.close_button {
+  background: transparent;
+  font-size: 64px;
+
+  &:hover, &:focus {
+    transform: scale(0.9);  
   }
 }
