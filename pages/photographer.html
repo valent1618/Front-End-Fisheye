@@ -15,7 +15,7 @@
     <title>Fisheye - photographe</title>
   </head>
   <body>
-    <header role="banner">
+    <header id="banner" role="banner">
       <a
         href="../index.html"
         aria-label="Page d'accueil Fisheye"
@@ -30,7 +30,10 @@
     </header>
     <main id="main">
       <section class="photograph-header">
-        <button class="button contact_button" onclick="displayModal()">
+        <button
+          class="button contact_button"
+          onclick="displayModal('contact_modal')"
+        >
           Contactez-moi
         </button>
       </section>
@@ -81,15 +84,23 @@
       </section>
       <div class="like-price"></div>
     </main>
-    <div id="contact_modal">
-      <dialog class="modal" aria-labelledby="contact-title">
+    <div id="contact_modal" class="modal">
+      <dialog
+        class="dialog-contact"
+        aria-labelledby="contact-title"
+        open="false"
+      >
         <header>
           <h1 id="contact-title">Contactez-moi</h1>
-          <button onclick="closeModal()" aria-label="Ferme la modal">
-            <img
-              src="../assets/icons/close.svg"
-              alt="Croix pour fermer la modal"
-            />
+          <button
+            onclick="closeModal('contact_modal')"
+            class="close_button"
+            aria-label="Ferme la modal"
+          >
+            <i
+              class="fa-solid fa-xmark"
+              aria-label="Croix pour fermer la modal"
+            ></i>
           </button>
         </header>
         <form class="contact-form" name="contact">
@@ -115,11 +126,39 @@
         </form>
       </dialog>
     </div>
-    <script src="../scripts/components/select-order.js"></script>
+    <div id="media_modal" class="modal">
+      <dialog
+        class="dialog-media"
+        aria-label="Image en vue rapprochée"
+        open="false"
+      >
+        <button
+          onclick="closeModal('media_modal')"
+          class="close_button"
+          aria-label="Ferme la modal"
+        >
+          <i
+            class="fa-solid fa-xmark"
+            aria-label="Croix pour fermer la modal"
+          ></i>
+        </button>
+        <div class="nav-media-container">
+          <a class="arrow arrow-left media-arrow"></a>
+          <article id="article-closeup" aria-labelledby="img-closeup-title">
+            <img id="img-closeup" />
+            <h3 id="img-closeup-title"></h3>
+          </article>
+          <a class="arrow arrow-right media-arrow"></a>
+        </div>
+      </dialog>
+    </div>
     <script src="../scripts/utils/fetchPhotographers.js"></script>
-    <script src="../scripts/utils/contactForm.js"></script>
+    <script src="../scripts/utils/modal.js"></script>
     <script src="../scripts/factories/photographer.js"></script>
     <script src="../scripts/factories/media.js"></script>
+    <script src="../scripts/components/select-order.js"></script>
+    <script src="../scripts/components/contactForm.js"></script>
+    <script src="../scripts/components/mediaModal.js"></script>
     <script src="../scripts/pages/photographer.js"></script>
   </body>
 </html>
