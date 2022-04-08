@@ -1,5 +1,5 @@
 function mediaFactory(data) {
-  const { photographerId, title, image, video, likes } = data;
+  const { id, photographerId, title, image, video, likes } = data;
 
   // Create variable source depend of the media
   let source = image
@@ -9,6 +9,7 @@ function mediaFactory(data) {
   // create article
   const article = document.createElement("article");
   article.className = "gallery-card";
+  article.setAttribute("aria-describedby", `img-title-${id}`);
 
   // create a for link to lightbox
   const link = document.createElement("a");
@@ -36,6 +37,7 @@ function mediaFactory(data) {
   const imgTitle = document.createElement("h3");
   imgTitle.textContent = title;
   imgTitle.className = "img-title";
+  imgTitle.id = `img-title-${id}`;
   imgTitle.setAttribute("aria-label", "Titre de l'image");
 
   // create div for the like container
