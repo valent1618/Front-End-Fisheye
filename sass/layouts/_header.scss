@@ -1,11 +1,14 @@
-header {
+#banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 90px;
   padding: 25px 0;
 
   .logo {
     height: 50px;
+  }
+
+  h1 {
+    font-size: 36px;
   }
 }
