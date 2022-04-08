@@ -7,7 +7,12 @@
     height: 300px;
     width: 100%;
     border-radius: $radius;
+
+    &:hover, &:focus {
+      filter: brightness(0.8);
+    }
   }
+
 
   .info-container {
     display: flex;
@@ -15,7 +20,6 @@
     align-items: center;
     gap: 50px;
     color: $color-primary;
-    font-size: 24px;
 
     .img-title,
     .like-number {
@@ -26,6 +30,10 @@
       display: flex;
       align-items: center;
       gap: 5px;
+
+      i {
+        font-size: 24px;
+      }
     }
   }
 }
