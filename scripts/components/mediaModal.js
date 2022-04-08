@@ -31,9 +31,9 @@ function closeupView() {
       let isImage = true;
       if (link.getAttribute("media") === "image") {
         image.setAttribute("src", link.href);
-        image.setAttribute("alt", `Photo de ${link.title}`);
+        image.setAttribute("alt", `Photo : ${link.title}`);
       } else {
-        vid.setAttribute("aria-label", `Vidéo de ${link.title}`);
+        vid.setAttribute("aria-label", `Vidéo : ${link.title}`);
         vid.innerHTML = `<source src=${link.href} type="video/mp4">
         <p>Votre navigateur ne prend pas en charge les vidéos HTML5. Voici <a href=${link.href}>un lien pour télécharger la vidéo</a>.</p>`;
         isImage = false;
