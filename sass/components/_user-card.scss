@@ -4,42 +4,44 @@
   justify-content: center;
   align-items: center;
 
-  a,
-  div {
+  .link,
+  .info-container {
     text-align: center;
   }
 
-  a {
-    text-decoration: none;
-
+  .link {
     img {
       object-fit: cover;
       height: 200px;
       width: 200px;
       border-radius: 50%;
+      box-shadow: 0 7px 7px $color-shadow;
     }
 
     h2 {
       margin: 10px 0 0 0;
       color: $color-secondary;
-      font-weight: normal;
-      font-size: 36px;
       white-space: nowrap;
     }
 
     &:hover img,
     &:focus img {
-      transform: scale(1.05);
+      transform: translateY(5px);
+      box-shadow: 0 2px 2px $color-shadow;
     }
   }
 
-  p {
-    font-size: 10px;
+  .location, .slogan, .price {
     margin: 3px 0;
   }
 
   .location {
     font-size: 13px;
+    color: $color-primary;
+  }
+
+  .slogan, .price {
+    font-size: 10px;
   }
 
   .price {
