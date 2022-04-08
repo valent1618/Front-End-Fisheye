@@ -6,16 +6,19 @@
 @import "./base/animations";
 
 /* - Components - */
-@import "./components/user-card";
-@import "./components/gallery-card";
 @import "./components/button";
-@import "./components/photograph-header";
-@import "./components/like-price";
+@import "./components/arrow";
+@import "./components/user-card";
 @import "./components/select-order";
+@import "./components/photograph-header";
+@import "./components/gallery-card";
+@import "./components/like-price";
 
 /* - Layouts - */
 @import "./layouts/header";
-@import "./layouts/contact-modal";
+@import "./layouts/modal";
+@import "./layouts/dialog-contact";
+@import "./layouts/dialog-media";
 
 /* - Pages - */
 @import "./pages/home";
