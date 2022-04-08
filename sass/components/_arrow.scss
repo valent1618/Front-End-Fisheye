@@ -1,0 +1,23 @@
+.arrow {
+    width: 25px;
+    height: 25px;
+    border-style: solid none none solid;
+    border-width: 8px;
+    border-color: $color-primary;
+}
+
+.arrow-left {
+    transform: rotate(-45deg);
+
+    &:hover {
+        transform: rotate(-45deg) scale(0.9);
+    }
+}
+
+.arrow-right {
+    transform: rotate(135deg);
+
+    &:hover {
+        transform: rotate(135deg) scale(0.9);
+    }
+}
