@@ -335,14 +335,38 @@ button {
   align-items: center;
   gap: 5px;
 }
-.gallery-card .info-container .like-container i {
+
+.heart {
+  position: relative;
+  width: 24px;
+  height: 24px;
   font-size: 24px;
+  color: #901c1c;
+}
+.heart input {
+  display: none;
+}
+.heart i {
+  position: absolute;
+  padding: 1px;
+}
+.heart .fa-solid {
+  transform: scale(0);
+  opacity: 0;
+}
+.heart input:checked ~ label .fa-solid {
+  transform: scale(1);
+  opacity: 1;
+}
+.heart:hover {
+  opacity: 0.8;
 }
 
 .like-price {
   position: fixed;
   bottom: 0;
   right: 25px;
+  min-width: 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -351,9 +375,13 @@ button {
   padding: 10px 25px;
   color: black;
 }
-.like-price .price {
+.like-price div {
+  display: flex;
+  align-items: center;
+}
+.like-price h3 {
   font-weight: bold;
-  font-size: 1.2em;
+  margin: 20px 5px;
 }
 
 /* - Layouts - */
