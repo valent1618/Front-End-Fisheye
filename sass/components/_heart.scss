@@ -1,0 +1,32 @@
+.heart {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    color: $color-primary;
+  
+    input {
+      display: none;
+    }
+  
+    i {
+      position: absolute;
+      padding: 1px;
+    }
+  
+    .fa-solid {
+      transform: scale(0);
+      opacity: 0;
+    }
+  
+    input:checked ~ label {  
+      .fa-solid {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+  
+    &:hover {
+        opacity: 0.8;
+    }
+  }
