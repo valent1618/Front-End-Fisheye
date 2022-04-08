@@ -50,9 +50,14 @@ function mediaFactory(data) {
   likeNumber.className = "like-number";
   likeContainer.setAttribute("aria-label", "Nombre de like");
 
-  // create heart icone
-  const heart = document.createElement("i");
-  heart.className = "fa-solid fa-heart";
+  // create clickable heart
+  const heart = document.createElement("span");
+  heart.className = "heart";
+  heart.innerHTML = `<input type="checkbox" id="fav-${id}" />
+  <label for="fav-${id}">
+    <i class="fa-regular fa-heart"></i>
+    <i class="fa-solid fa-heart"></i>
+  </label>`;
 
   function getGalleryCard() {
     // put image or video into the link
