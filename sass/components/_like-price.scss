@@ -2,6 +2,7 @@
   position: fixed;
   bottom: 0;
   right: 25px;
+  min-width: 25%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -9,9 +10,14 @@
   border-radius: $radius $radius 0 0;
   padding: 10px 25px;
   color: black;
+  
+  div {
+    display: flex;
+    align-items: center;
+  }
 
-  .price {
+  h3 {
     font-weight: bold;
-    font-size: 1.2em;
+    margin: 20px 5px;
   }
 }
