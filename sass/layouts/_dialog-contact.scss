@@ -1,21 +1,11 @@
 #contact_modal {
-  display: none;
-  opacity: 0;
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: 0 -100px;
-  backdrop-filter: blur(5px);
-
-  .modal {
-    overflow-y: scroll;
-    box-sizing: border-box;
-    border: none;
+  
+  .dialog-contact {
+    animation: $animation-duration expandModal forwards;
     border-radius: $radius;
     background-color: #db8876;
-    box-shadow: -3px 5px 15px rgba(0, 0, 0, 0.4);
-    height: 0;
+    box-shadow: -3px 5px 15px $color-shadow;
+    height: calc(100% - 100px);
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -23,25 +13,32 @@
     align-items: flex-start;
     gap: 25px;
     padding: 35px;
-    margin: 50px auto;
 
     header {
+      display: flex;
       justify-content: space-between;
+      align-items: flex-start;
+      gap: 50px;
       width: 100%;
+      padding: 0;
 
       #contact-title {
+        margin: 0;
+        line-height: 1.1;
         color: black;
         font-size: 64px;
         font-weight: normal;
       }
 
       button {
-        border: none;
-        background: transparent;
+        .arrow {
+          border-color: white;
+        }
       }
     }
 
     form {
+      animation: $animation-duration appear 0.4s forwards;
       opacity: 0;
       width: 100%;
       display: flex;
