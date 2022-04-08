@@ -7,15 +7,21 @@ function recursiveFocusable(el) {
   el.removeAttribute("tabindex");
   [...el.children].forEach(recursiveFocusable);
 }
-// Handle the focus on header and main
+// Handle focus on header and main
+// Set attribute aria-hidden
 function handleFocus() {
+  const banner = document.getElementById("banner");
   const headerLink = document.querySelector(".header-link");
   const main = document.getElementById("main");
 
   if (main.getAttribute("tabindex")) {
+    banner.setAttribute("aria-hidden", "true");
+    main.setAttribute("aria-hidden", "true");
     headerLink.removeAttribute("tabindex");
     recursiveFocusable(main);
   } else {
+    banner.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "false");
     headerLink.setAttribute("tabindex", "-1");
     recursiveUnfocusable(main);
   }
