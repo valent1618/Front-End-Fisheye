@@ -8,10 +8,6 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/75243ac523.js"
-      crossorigin="anonymous"
-    ></script>
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -97,10 +93,8 @@
             class="close_button"
             aria-label="Ferme la modal"
           >
-            <i
-              class="fa-solid fa-xmark"
-              aria-label="Croix pour fermer la modal"
-            ></i>
+            <div class="arrow cross-arrow-left"></div>
+            <div class="arrow cross-arrow-right"></div>
           </button>
         </header>
         <form class="contact-form" name="contact">
@@ -137,18 +131,22 @@
           class="close_button"
           aria-label="Ferme la modal"
         >
-          <i
-            class="fa-solid fa-xmark"
-            aria-label="Croix pour fermer la modal"
-          ></i>
+          <div class="arrow cross-arrow-left"></div>
+          <div class="arrow cross-arrow-right"></div>
         </button>
         <div class="nav-media-container">
-          <a class="arrow arrow-left media-arrow"></a>
+          <a
+            class="arrow arrow-left media-arrow"
+            aria-label="Affiche le media précédent"
+          ></a>
           <article id="article-closeup" aria-labelledby="img-closeup-title">
             <img id="img-closeup" />
             <h3 id="img-closeup-title"></h3>
           </article>
-          <a class="arrow arrow-right media-arrow"></a>
+          <a
+            class="arrow arrow-right media-arrow"
+            aria-label="Affiche le media suivant"
+          ></a>
         </div>
       </dialog>
     </div>
