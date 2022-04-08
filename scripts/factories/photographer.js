@@ -9,11 +9,12 @@ function photographerFactory(data) {
   img.setAttribute("src", `../assets/photographers/${portrait}`);
   img.setAttribute("alt", `Photo de ${name}`);
 
-  // create paragraph
-  const paragraph = document.createElement("div");
+  // create infoContainer
+  const infoContainer = document.createElement("div");
+  infoContainer.className = "info-container";
 
-  // create p for the location
-  const location = document.createElement("p");
+  // create h3 for the location
+  const location = document.createElement("h3");
   location.textContent = `${city}, ${country}`;
   location.className = "location";
   location.setAttribute("aria-label", "Localisation");
@@ -24,11 +25,14 @@ function photographerFactory(data) {
   slogan.className = "slogan";
   slogan.setAttribute("aria-label", "Slogan");
 
-  // create p for the price
-  const tjm = document.createElement("p");
+  // create h3 for the price
+  const tjm = document.createElement("h3");
   tjm.textContent = `${price}€ / jour`;
   tjm.className = "price";
   tjm.setAttribute("aria-label", "Prix par jour");
+
+  //
+  // Functions components
 
   // create user card for index
   function getUserCardDOM() {
@@ -37,6 +41,7 @@ function photographerFactory(data) {
 
     // create link
     const link = document.createElement("a");
+    link.className = "link";
     link.setAttribute("href", `pages/photographer.html?id=${id}`);
     link.setAttribute("aria-labelledby", "name");
 
@@ -52,22 +57,24 @@ function photographerFactory(data) {
     link.appendChild(img);
     link.appendChild(h2);
 
-    // Put location, slogan and price into the paragraph
-    paragraph.appendChild(location);
-    paragraph.appendChild(slogan);
-    paragraph.appendChild(tjm);
+    // create p for the price
+    const tjmIndex = document.createElement("p");
+    tjmIndex.textContent = `${price}€/jour`;
+    tjmIndex.className = "price";
+    tjmIndex.setAttribute("aria-label", "Prix par jour");
 
-    // remove space in tjm
-    tjm.textContent = `${price}€/jour`;
+    // Put location, slogan and price into the infoContainer
+    infoContainer.appendChild(location);
+    infoContainer.appendChild(slogan);
+    infoContainer.appendChild(tjmIndex);
 
-    // Put link and paragraph into the article
+    // Put link and infoContainer into the article
     article.appendChild(link);
-    article.appendChild(paragraph);
+    article.appendChild(infoContainer);
 
     return article;
   }
 
-  // create article for the header of page photographer
   function getInfoPhotographHeader() {
     // add aria-label
     article.setAttribute("aria-label", `Information sur ${name}`);
@@ -78,13 +85,13 @@ function photographerFactory(data) {
     h1.setAttribute("id", "name");
     h1.setAttribute("aria-label", "Nom et prénom");
 
-    // Put location, slogan and price into the paragraph
-    paragraph.appendChild(location);
-    paragraph.appendChild(slogan);
+    // Put location, slogan and price into the infoContainer
+    infoContainer.appendChild(location);
+    infoContainer.appendChild(slogan);
 
-    // Put paragraph into the article
+    // Put infoContainer into the article
     article.appendChild(h1);
-    article.appendChild(paragraph);
+    article.appendChild(infoContainer);
 
     return article;
   }
