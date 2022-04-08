@@ -54,6 +54,8 @@ async function init() {
   const { goodPhotographer, goodMedias } = await getData();
   // And display it
   displayData(goodPhotographer, goodMedias);
+  // Launch the script for the media modal
+  closeupView();
 }
 
 init();
