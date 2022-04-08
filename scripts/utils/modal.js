@@ -15,13 +15,13 @@ function handleFocus() {
   const main = document.getElementById("main");
 
   if (main.getAttribute("tabindex")) {
-    banner.setAttribute("aria-hidden", "true");
-    main.setAttribute("aria-hidden", "true");
+    banner.setAttribute("aria-hidden", "false");
+    main.setAttribute("aria-hidden", "false");
     headerLink.removeAttribute("tabindex");
     recursiveFocusable(main);
   } else {
-    banner.setAttribute("aria-hidden", "false");
-    main.setAttribute("aria-hidden", "false");
+    banner.setAttribute("aria-hidden", "true");
+    main.setAttribute("aria-hidden", "true");
     headerLink.setAttribute("tabindex", "-1");
     recursiveUnfocusable(main);
   }
@@ -35,6 +35,7 @@ function displayModal(thisModal) {
   const dialog = modal.querySelector("dialog");
 
   modal.style.display = "flex";
+  modal.setAttribute("aria-hidden", "false");
   dialog.setAttribute("open", "true");
 
   // Remove scroll on body
@@ -59,6 +60,7 @@ function closeModal(thisModal) {
   const dialog = modal.querySelector("dialog");
 
   modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
   dialog.setAttribute("open", "false");
 
   // Add scroll on body
