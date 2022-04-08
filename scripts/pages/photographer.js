@@ -38,10 +38,15 @@ async function displayData(photographer, medias) {
   photographHeader.appendChild(photographerFactory(photographer).img);
 
   // Completed the gallery with the data
-  medias.forEach((media) =>
-    mediaContainer.appendChild(mediaFactory(media).getGalleryCard())
-  );
+  // and count the total likes
+  let totalLikes = 0;
+  medias.forEach((media) => {
+    mediaContainer.appendChild(mediaFactory(media).getGalleryCard());
+    totalLikes += media.likes;
+  });
 
+  // Add the total likes to the likePrice;
+  likePrice.querySelector(".total-likes").textContent = totalLikes;
   // Add price to the like price
   likePrice.appendChild(photographerFactory(photographer).tjm);
 
@@ -56,6 +61,8 @@ async function init() {
   displayData(goodPhotographer, goodMedias);
   // Launch the script for the media modal
   closeupView();
+  // Launch the script for the like
+  like();
 }
 
 init();
