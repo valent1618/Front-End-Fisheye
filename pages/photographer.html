@@ -4,8 +4,10 @@
     <link href="../css/styles.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="../assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
     <script
@@ -82,7 +84,12 @@
         </div>
         <div class="media-container"></div>
       </section>
-      <div class="like-price"></div>
+      <div class="like-price">
+        <div>
+          <h3 class="total-likes" aria-label="Nombre total de likes"></h3>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+      </div>
     </main>
     <div id="contact_modal" class="modal" aria-hidden="true">
       <dialog
@@ -156,6 +163,7 @@
     </div>
     <script src="../scripts/utils/fetchPhotographers.js"></script>
     <script src="../scripts/utils/modal.js"></script>
+    <script src="../scripts/utils/like.js"></script>
     <script src="../scripts/factories/photographer.js"></script>
     <script src="../scripts/factories/media.js"></script>
     <script src="../scripts/components/select-order.js"></script>
