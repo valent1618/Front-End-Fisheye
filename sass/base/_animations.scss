@@ -7,11 +7,20 @@
   }
 }
 
-@keyframes expand {
+@keyframes expandModal {
   from {
     height: 0;
   }
   to {
     height: calc(100% - 100px);
+  }
+}
+
+@keyframes expandMedia {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
   }
 }
