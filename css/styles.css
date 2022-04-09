@@ -1,8 +1,8 @@
-@charset "UTF-8";
 /* - Utils - */
 /* - Base - */
 * {
   transition: 0.2s;
+  scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar {
@@ -222,13 +222,13 @@ button {
 .select-order .select_button ul .sep-second {
   order: 4;
 }
-.select-order .select_button #popularité {
+.select-order .select_button #popularity {
   order: 1;
 }
 .select-order .select_button #date {
   order: 3;
 }
-.select-order .select_button #titre {
+.select-order .select_button #title {
   order: 5;
 }
 .select-order .select_button::after {
