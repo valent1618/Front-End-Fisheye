@@ -59,6 +59,8 @@ async function init() {
   const { goodPhotographer, goodMedias } = await getData();
   // And display it
   displayData(goodPhotographer, goodMedias);
+  // Launch the script for sort media
+  selectOrder(goodMedias);
   // Launch the script for the media modal
   closeupView();
   // Launch the script for the like
