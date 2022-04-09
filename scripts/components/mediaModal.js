@@ -54,31 +54,32 @@ function closeupView() {
       }
     });
   });
+}
 
-  // If arrow is click
-  // Redirect click to the media
-  arrows.forEach((arrow) => {
-    arrow.addEventListener("click", (e) => {
-      e.preventDefault();
-      const clickedLink = arrow.href;
-      links.forEach((link) => {
-        if (link.href === clickedLink) {
-          link.click();
-        }
-      });
+// If arrow is click
+// Redirect click to the media
+arrows.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    e.preventDefault();
+    const clickedLink = arrow.href;
+    const links = document.querySelectorAll(".media-link");
+    links.forEach((link) => {
+      if (link.href === clickedLink) {
+        link.click();
+      }
     });
   });
+});
 
-  // Key event
-  // If modal is open, detect arrow for change media
-  document.addEventListener("keydown", (e) => {
-    if (modal.children[0].getAttribute("open") === "true") {
-      if (e.code === "ArrowRight") {
-        arrows[1].click();
-      }
-      if (e.code === "ArrowLeft") {
-        arrows[0].click();
-      }
+// Key event
+// If modal is open, detect arrow for change media
+document.addEventListener("keydown", (e) => {
+  if (modal.children[0].getAttribute("open") === "true") {
+    if (e.code === "ArrowRight") {
+      arrows[1].click();
     }
-  });
-}
+    if (e.code === "ArrowLeft") {
+      arrows[0].click();
+    }
+  }
+});
