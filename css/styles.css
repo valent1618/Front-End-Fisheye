@@ -343,21 +343,20 @@ button {
   position: relative;
   width: 24px;
   height: 24px;
+  background-color: transparent;
   font-size: 24px;
   color: #901c1c;
 }
-.heart input {
-  display: none;
-}
 .heart i {
   position: absolute;
-  padding: 1px;
+  top: 0;
+  left: 0;
 }
 .heart .fa-solid {
   transform: scale(0);
   opacity: 0;
 }
-.heart input:checked ~ label .fa-solid {
+.heart[fav=true] .fa-solid {
   transform: scale(1);
   opacity: 1;
 }
