@@ -48,7 +48,7 @@ function mediaFactory(data) {
   const likeNumber = document.createElement("h3");
   likeNumber.textContent = likes;
   likeNumber.className = "like-number";
-  likeContainer.setAttribute("aria-label", "Nombre de like");
+  likeContainer.setAttribute("aria-label", "Nombre de likes");
 
   // create clickable heart
   const heart = document.createElement("button");
@@ -57,6 +57,7 @@ function mediaFactory(data) {
   heart.innerHTML = `
     <i class="fa-regular fa-heart"></i>
     <i class="fa-solid fa-heart"></i>`;
+  heart.setAttribute("aria-label", "J'aime");
 
   function getGalleryCard() {
     // put image or video into the link
