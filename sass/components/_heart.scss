@@ -2,16 +2,14 @@
     position: relative;
     width: 24px;
     height: 24px;
+    background-color: transparent;
     font-size: 24px;
     color: $color-primary;
   
-    input {
-      display: none;
-    }
-  
     i {
       position: absolute;
-      padding: 1px;
+      top: 0;
+      left: 0;
     }
   
     .fa-solid {
@@ -19,14 +17,12 @@
       opacity: 0;
     }
   
-    input:checked ~ label {  
-      .fa-solid {
+    &[fav="true"] .fa-solid {  
         transform: scale(1);
         opacity: 1;
-      }
     }
   
     &:hover {
         opacity: 0.8;
     }
-  }
+}
