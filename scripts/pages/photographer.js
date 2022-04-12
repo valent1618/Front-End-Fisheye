@@ -37,6 +37,8 @@ async function displayData(photographer, medias) {
   );
   photographHeader.appendChild(photographerFactory(photographer).img);
 
+  // Sort medias by popularity
+  medias.sort((a, b) => b.likes - a.likes);
   // Completed the gallery with the data
   // and count the total likes
   let totalLikes = 0;
