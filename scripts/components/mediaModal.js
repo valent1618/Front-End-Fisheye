@@ -49,7 +49,7 @@ function closeupView() {
       article.parentNode.replaceChild(article, article);
 
       // Display the modal if it is not already open
-      if (modal.children[0].getAttribute("open") === "false") {
+      if (modal.getAttribute("aria-hidden") === "true") {
         displayModal("media_modal");
       }
     });
@@ -74,7 +74,7 @@ arrows.forEach((arrow) => {
 // Key event
 // If modal is open, detect arrow for change media
 document.addEventListener("keydown", (e) => {
-  if (modal.children[0].getAttribute("open") === "true") {
+  if (modal.getAttribute("aria-hidden") === "false") {
     if (e.code === "ArrowRight") {
       arrows[1].click();
     }
