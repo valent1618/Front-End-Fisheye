@@ -41,45 +41,42 @@
       </section>
       <section class="media-section">
         <div class="select-order">
-          <label for="order-by">Trier par</label>
+          <span id="label-select">Trier par</span>
           <button
             class="button select_button"
-            id="order-by"
+            aria-labelledby="label-select"
+            aria-expanded="false"
             aria-haspopup="listbox"
-            aria-expanded="collapsed"
           >
-            <ul
+            <div
+              class="listbox"
               role="listbox"
-              id="listbox-order-media"
               aria-activedescendant="popularity"
             >
-              <li
+              <div
                 role="option"
                 id="popularity"
                 class="order-media"
                 aria-selected="true"
+                >Popularité</div
               >
-                Popularité
-              </li>
-              <div class="separator sep-first"></div>
-              <li
+              <hr class="sep-first" />
+              <div
                 role="option"
                 id="date"
                 class="order-media"
                 aria-selected="false"
+                >Date</div
               >
-                Date
-              </li>
-              <div class="separator sep-second"></div>
-              <li
+              <hr class="sep-second" />
+              <div
                 role="option"
                 id="title"
                 class="order-media"
                 aria-selected="false"
+                >Titre</div
               >
-                Titre
-              </li>
-            </ul>
+            </div>
           </button>
         </div>
         <div class="media-container"></div>
@@ -92,11 +89,7 @@
       </div>
     </main>
     <div id="contact_modal" class="modal" aria-hidden="true">
-      <dialog
-        class="dialog-contact"
-        aria-labelledby="contact-title"
-        open="false"
-      >
+      <dialog class="dialog-contact" aria-labelledby="contact-title">
         <header>
           <h1 id="contact-title">Contactez-moi</h1>
           <button
@@ -104,8 +97,8 @@
             class="close_button"
             aria-label="Ferme la modal"
           >
-            <div class="arrow cross-arrow-left"></div>
-            <div class="arrow cross-arrow-right"></div>
+            <span class="arrow cross-arrow-left"></span>
+            <span class="arrow cross-arrow-right"></span>
           </button>
         </header>
         <form class="contact-form" name="contact">
@@ -132,18 +125,14 @@
       </dialog>
     </div>
     <div id="media_modal" class="modal" aria-hidden="true">
-      <dialog
-        class="dialog-media"
-        aria-label="Image en vue rapprochée"
-        open="false"
-      >
+      <dialog class="dialog-media" aria-label="Image en vue rapprochée">
         <button
           onclick="closeModal('media_modal')"
           class="close_button"
           aria-label="Ferme la modal"
         >
-          <div class="arrow cross-arrow-left"></div>
-          <div class="arrow cross-arrow-right"></div>
+          <span class="arrow cross-arrow-left"></span>
+          <span class="arrow cross-arrow-right"></span>
         </button>
         <div class="nav-media-container">
           <a

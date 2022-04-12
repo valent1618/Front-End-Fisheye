@@ -5,12 +5,13 @@
   display: flex;
   align-items: flex-start;
 
-  label {
+  #label-select {
     font-weight: bold;
     font-size: 18px;
   }
 
   .select_button {
+    cursor: pointer;
     box-shadow: 0 0px 0px $color-shadow;
     position: absolute;
     top: -20px;
@@ -19,38 +20,37 @@
     gap: 25px;
     text-align: start;
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    .listbox {
       display: flex;
       flex-direction: column;
 
-      .separator {
+      hr {
         position: relative;
-        margin: 0px -10px;
-        width: 0;
+        left: -10px;
+        margin: 0;
+        width: 160%;
+        background-color: white;
       }
-
+  
       .sep-first {
         order: 2;
       }
-
+  
       .sep-second {
         order: 4;
       }
-    }
-
-    #popularity {
-      order: 1;
-    }
-
-    #date {
-      order: 3;
-    }
-
-    #title {
-      order: 5;
+  
+      #popularity {
+        order: 1;
+      }
+  
+      #date {
+        order: 3;
+      }
+  
+      #title {
+        order: 5;
+      }
     }
 
     &::after {
@@ -72,33 +72,27 @@
     }
   }
 
-  .select_button[aria-expanded="collapsed"] {
-    li {
+  .select_button[aria-expanded="false"] .listbox {
+    div, hr {
       display: none;
     }
-    li[aria-selected="true"] {
+    div[aria-selected="true"] {
       display: block;
     }
   }
 
-  .select_button[aria-expanded="expanded"] {
+  .select_button[aria-expanded="true"] {
     box-shadow: 0 3px 3px $color-shadow;
 
-    ul {
+    .listbox {
       gap: 12px;
-
-      li {
+      
+      div, hr {
         display: block;
-
+  
         &:hover, &:focus {
           opacity: 0.8;
         }
-      }
-
-      .separator {
-        width: 160%;
-        height: 1px;
-        background-color: white;
       }
     }
 
