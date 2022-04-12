@@ -191,11 +191,12 @@ button {
   display: flex;
   align-items: flex-start;
 }
-.select-order label {
+.select-order #label-select {
   font-weight: bold;
   font-size: 18px;
 }
 .select-order .select_button {
+  cursor: pointer;
   box-shadow: 0 0px 0px rgba(0, 0, 0, 0.4);
   position: absolute;
   top: -20px;
@@ -204,31 +205,30 @@ button {
   gap: 25px;
   text-align: start;
 }
-.select-order .select_button ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+.select-order .select_button .listbox {
   display: flex;
   flex-direction: column;
 }
-.select-order .select_button ul .separator {
+.select-order .select_button .listbox hr {
   position: relative;
-  margin: 0px -10px;
-  width: 0;
+  left: -10px;
+  margin: 0;
+  width: 160%;
+  background-color: white;
 }
-.select-order .select_button ul .sep-first {
+.select-order .select_button .listbox .sep-first {
   order: 2;
 }
-.select-order .select_button ul .sep-second {
+.select-order .select_button .listbox .sep-second {
   order: 4;
 }
-.select-order .select_button #popularity {
+.select-order .select_button .listbox #popularity {
   order: 1;
 }
-.select-order .select_button #date {
+.select-order .select_button .listbox #date {
   order: 3;
 }
-.select-order .select_button #title {
+.select-order .select_button .listbox #title {
   order: 5;
 }
 .select-order .select_button::after {
@@ -247,30 +247,25 @@ button {
 .select-order .select_button:hover, .select-order .select_button:focus {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
-.select-order .select_button[aria-expanded=collapsed] li {
+.select-order .select_button[aria-expanded=false] .listbox div, .select-order .select_button[aria-expanded=false] .listbox hr {
   display: none;
 }
-.select-order .select_button[aria-expanded=collapsed] li[aria-selected=true] {
+.select-order .select_button[aria-expanded=false] .listbox div[aria-selected=true] {
   display: block;
 }
-.select-order .select_button[aria-expanded=expanded] {
+.select-order .select_button[aria-expanded=true] {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
-.select-order .select_button[aria-expanded=expanded] ul {
+.select-order .select_button[aria-expanded=true] .listbox {
   gap: 12px;
 }
-.select-order .select_button[aria-expanded=expanded] ul li {
+.select-order .select_button[aria-expanded=true] .listbox div, .select-order .select_button[aria-expanded=true] .listbox hr {
   display: block;
 }
-.select-order .select_button[aria-expanded=expanded] ul li:hover, .select-order .select_button[aria-expanded=expanded] ul li:focus {
+.select-order .select_button[aria-expanded=true] .listbox div:hover, .select-order .select_button[aria-expanded=true] .listbox div:focus, .select-order .select_button[aria-expanded=true] .listbox hr:hover, .select-order .select_button[aria-expanded=true] .listbox hr:focus {
   opacity: 0.8;
 }
-.select-order .select_button[aria-expanded=expanded] ul .separator {
-  width: 160%;
-  height: 1px;
-  background-color: white;
-}
-.select-order .select_button[aria-expanded=expanded]::after {
+.select-order .select_button[aria-expanded=true]::after {
   transform: rotate(-45deg);
 }
 
@@ -302,6 +297,7 @@ button {
   height: 200px;
   width: 200px;
   border-radius: 50%;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-card {
@@ -515,24 +511,24 @@ button {
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
-  height: 100%;
+  max-height: 100%;
   max-width: 80%;
+  display: flex;
+  flex-direction: column;
 }
 #media_modal .nav-media-container article img, #media_modal .nav-media-container article video {
   animation: 0.4s ease-out appear;
-  object-fit: cover;
-  max-width: 100%;
-  height: 90%;
+  object-fit: contain;
+  max-height: calc(80vh - 60px);
 }
 #media_modal .nav-media-container article h3 {
   color: #901c1c;
-  margin: 10px;
-  height: 10%;
+  margin: 15px;
 }
 #media_modal button {
   position: absolute;
   top: 20px;
-  right: -23px;
+  right: -30px;
   color: #901c1c;
 }
 
