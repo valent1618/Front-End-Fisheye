@@ -1,3 +1,5 @@
+import { displayModal } from "./modal.js";
+
 const modal = document.getElementById("media_modal");
 const arrows = document.querySelectorAll(".media-arrow");
 const article = document.getElementById("article-closeup");
@@ -9,7 +11,7 @@ const vid = document.createElement("video");
 vid.setAttribute("controls", "true");
 vid.setAttribute("autoplay", "true");
 
-function closeupView() {
+export function closeupView() {
   const links = document.querySelectorAll(".media-link");
 
   links.forEach((link, i) => {
@@ -56,30 +58,32 @@ function closeupView() {
   });
 }
 
-// If arrow is click
-// Redirect click to the media
-arrows.forEach((arrow) => {
-  arrow.addEventListener("click", (e) => {
-    e.preventDefault();
-    const clickedLink = arrow.href;
-    const links = document.querySelectorAll(".media-link");
-    links.forEach((link) => {
-      if (link.href === clickedLink) {
-        link.click();
-      }
+export function mediaModalEvent() {
+  // If arrow is click
+  // Redirect click to the media
+  arrows.forEach((arrow) => {
+    arrow.addEventListener("click", (e) => {
+      e.preventDefault();
+      const clickedLink = arrow.href;
+      const links = document.querySelectorAll(".media-link");
+      links.forEach((link) => {
+        if (link.href === clickedLink) {
+          link.click();
+        }
+      });
     });
   });
-});
 
-// Key event
-// If modal is open, detect arrow for change media
-document.addEventListener("keydown", (e) => {
-  if (modal.getAttribute("aria-hidden") === "false") {
-    if (e.code === "ArrowRight") {
-      arrows[1].click();
+  // Key event
+  // If modal is open, detect arrow for change media
+  document.addEventListener("keydown", (e) => {
+    if (modal.getAttribute("aria-hidden") === "false") {
+      if (e.code === "ArrowRight") {
+        arrows[1].click();
+      }
+      if (e.code === "ArrowLeft") {
+        arrows[0].click();
+      }
     }
-    if (e.code === "ArrowLeft") {
-      arrows[0].click();
-    }
-  }
-});
+  });
+}

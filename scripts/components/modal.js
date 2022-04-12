@@ -1,7 +1,9 @@
+import { handleFocus } from "../utils/handleFocus.js";
+
 const body = document.querySelector("body");
 
 // Display modal
-function displayModal(thisModal) {
+export function displayModal(thisModal) {
   const modal = document.getElementById(thisModal);
 
   modal.style.display = "flex";
@@ -24,7 +26,7 @@ function displayModal(thisModal) {
 }
 
 // Close the modal
-function closeModal(thisModal) {
+export function closeModal(thisModal) {
   const modal = document.getElementById(thisModal);
 
   modal.style.display = "none";
@@ -46,15 +48,31 @@ function closeModal(thisModal) {
   }
 }
 
-// Key event
-// If modal is open, detect escape for close it
-const modals = document.querySelectorAll(".modal");
-document.addEventListener("keydown", (e) => {
-  modals.forEach((modal) => {
-    if (modal.getAttribute("aria-hidden") === "false") {
-      if (e.code === "Escape") {
-        modal.querySelector(".close_button").click();
-      }
-    }
+export function modalEvent() {
+  const displayModalButtons = document.querySelectorAll(".display-modal");
+  const closeModalButtons = document.querySelectorAll(".close-modal");
+
+  displayModalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      displayModal(button.getAttribute("modal"));
+    });
   });
-});
+  closeModalButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      closeModal(button.getAttribute("modal"));
+    });
+  });
+
+  // Key event
+  // If modal is open, detect escape for close it
+  const modals = document.querySelectorAll(".modal");
+  document.addEventListener("keydown", (e) => {
+    modals.forEach((modal) => {
+      if (modal.getAttribute("aria-hidden") === "false") {
+        if (e.code === "Escape") {
+          modal.querySelector(".close_button").click();
+        }
+      }
+    });
+  });
+}

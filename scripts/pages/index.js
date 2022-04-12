@@ -1,3 +1,6 @@
+import { getPhotographers } from "../utils/fetchPhotographers.js";
+import { photographerFactory } from "../factories/photographer.js";
+
 async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 

@@ -9,7 +9,7 @@ function recursiveFocusable(el) {
 }
 // Handle focus on header and main
 // Set attribute aria-hidden
-function handleFocus() {
+export function handleFocus() {
   const banner = document.getElementById("banner");
   const headerLink = document.querySelector(".header-link");
   const main = document.getElementById("main");

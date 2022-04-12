@@ -1,4 +1,4 @@
-function mediaFactory(data) {
+export function mediaFactory(data) {
   const { id, photographerId, title, image, video, likes } = data;
 
   // Create variable source depend of the media

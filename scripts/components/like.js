@@ -1,4 +1,4 @@
-function like() {
+export function like() {
   const hearts = document.querySelectorAll(".heart");
   const totalLikes = document.querySelector(".total-likes");
 

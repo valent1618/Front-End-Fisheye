@@ -1,3 +1,12 @@
+import { getPhotographers } from "../utils/fetchPhotographers.js";
+import { photographerFactory } from "../factories/photographer.js";
+import { mediaFactory } from "../factories/media.js";
+import { modalEvent } from "../components/modal.js";
+import { submitFormEvent } from "../components/contactForm.js";
+import { selectOrder } from "../components/select-order.js";
+import { closeupView, mediaModalEvent } from "../components/mediaModal.js";
+import { like } from "../components/like.js";
+
 async function getData() {
   // Get photographers and media data
   const { photographers, media } = await getPhotographers("../data");
@@ -56,17 +65,27 @@ async function displayData(photographer, medias) {
   contactTitle.innerHTML = `Contactez-moi<br>${photographer.name}`;
 }
 
+function launchScript(medias) {
+  // Launch script for modal event
+  modalEvent();
+  // Launch script for contact form
+  submitFormEvent();
+  // Launch script for the button select order
+  selectOrder(medias);
+  // Launch scripts for the media modal
+  closeupView();
+  mediaModalEvent();
+  // Launch script for the like
+  like();
+}
+
 async function init() {
   // Get the data of the photographer previously selected
   const { goodPhotographer, goodMedias } = await getData();
   // And display it
   displayData(goodPhotographer, goodMedias);
-  // Launch the script for sort media
-  selectOrder(goodMedias);
-  // Launch the script for the media modal
-  closeupView();
-  // Launch the script for the like
-  like();
+  // Launch scripts
+  launchScript(goodMedias);
 }
 
 init();

@@ -1,9 +1,14 @@
+import { handleFocus } from "../utils/handleFocus.js";
+import { mediaFactory } from "../factories/media.js";
+import { closeupView } from "../components/mediaModal.js";
+import { like } from "../components/like.js";
+
 const selectButton = document.querySelector(".select_button");
 const listbox = document.querySelector(".listbox");
 const options = document.querySelectorAll(".order-media");
 const mediaContainer = document.querySelector(".media-container");
 
-function selectOrder(medias) {
+export function selectOrder(medias) {
   selectButton.addEventListener("click", () => {
     // If button is collapsed when is clicked
     if (selectButton.getAttribute("aria-expanded") === "false") {
@@ -73,6 +78,60 @@ function selectOrder(medias) {
       selectButton.focus();
     }
   });
+
+  // Key event
+  document.addEventListener("keydown", (e) => {
+    let nextTab, previousTab;
+    if (selectButton.getAttribute("aria-expanded") === "true") {
+      switch (e.code) {
+        case "Escape":
+        case "ArrowLeft":
+          selectButton.focus();
+          selectButton.click();
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          nextTab =
+            parseInt(document.activeElement.getAttribute("tabindex")) + 2;
+          options.forEach((option) => {
+            if (option.getAttribute("tabindex") == nextTab) {
+              option.focus();
+            } else if (nextTab > 5 && option.getAttribute("tabindex") == 1) {
+              option.focus();
+            }
+          });
+          break;
+        case "ArrowUp":
+          e.preventDefault();
+          previousTab =
+            parseInt(document.activeElement.getAttribute("tabindex")) - 2;
+          options.forEach((option) => {
+            if (option.getAttribute("tabindex") == previousTab) {
+              option.focus();
+            } else if (
+              previousTab < 1 &&
+              option.getAttribute("tabindex") == 5
+            ) {
+              option.focus();
+            }
+          });
+          break;
+        case "ArrowRight":
+          selectButton.click();
+          break;
+        default:
+          options.forEach((option) => {
+            if (e.key.toLowerCase() == option.textContent[0].toLowerCase()) {
+              option.focus();
+            }
+          });
+      }
+    } else {
+      if (document.activeElement === selectButton && e.code === "ArrowRight") {
+        selectButton.click();
+      }
+    }
+  });
 }
 
 // Generic function for sort
@@ -85,53 +144,3 @@ function sortObject(a, b) {
   }
   return 0;
 }
-
-// Key event
-document.addEventListener("keydown", (e) => {
-  if (selectButton.getAttribute("aria-expanded") === "true") {
-    switch (e.code) {
-      case "Escape":
-      case "ArrowLeft":
-        selectButton.focus();
-        selectButton.click();
-        break;
-      case "ArrowDown":
-        e.preventDefault();
-        let nextTab =
-          parseInt(document.activeElement.getAttribute("tabindex")) + 2;
-        options.forEach((option) => {
-          if (option.getAttribute("tabindex") == nextTab) {
-            option.focus();
-          } else if (nextTab > 5 && option.getAttribute("tabindex") == 1) {
-            option.focus();
-          }
-        });
-        break;
-      case "ArrowUp":
-        e.preventDefault();
-        let previousTab =
-          parseInt(document.activeElement.getAttribute("tabindex")) - 2;
-        options.forEach((option) => {
-          if (option.getAttribute("tabindex") == previousTab) {
-            option.focus();
-          } else if (previousTab < 1 && option.getAttribute("tabindex") == 5) {
-            option.focus();
-          }
-        });
-        break;
-      case "ArrowRight":
-        selectButton.click();
-        break;
-      default:
-        options.forEach((option) => {
-          if (e.key.toLowerCase() == option.textContent[0].toLowerCase()) {
-            option.focus();
-          }
-        });
-    }
-  } else {
-    if (document.activeElement === selectButton && e.code === "ArrowRight") {
-      selectButton.click();
-    }
-  }
-});
