@@ -3,11 +3,9 @@ const body = document.querySelector("body");
 // Display modal
 function displayModal(thisModal) {
   const modal = document.getElementById(thisModal);
-  const dialog = modal.querySelector("dialog");
 
   modal.style.display = "flex";
   modal.setAttribute("aria-hidden", "false");
-  dialog.setAttribute("open", "true");
 
   // Remove scroll on body
   body.style.overflow = "hidden";
@@ -28,11 +26,9 @@ function displayModal(thisModal) {
 // Close the modal
 function closeModal(thisModal) {
   const modal = document.getElementById(thisModal);
-  const dialog = modal.querySelector("dialog");
 
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", "true");
-  dialog.setAttribute("open", "false");
 
   // Add scroll on body
   body.style.overflow = "scroll";
@@ -53,10 +49,9 @@ function closeModal(thisModal) {
 // Key event
 // If modal is open, detect escape for close it
 const modals = document.querySelectorAll(".modal");
-
 document.addEventListener("keydown", (e) => {
   modals.forEach((modal) => {
-    if (modal.children[0].getAttribute("open") === "true") {
+    if (modal.getAttribute("aria-hidden") === "false") {
       if (e.code === "Escape") {
         modal.querySelector(".close_button").click();
       }
