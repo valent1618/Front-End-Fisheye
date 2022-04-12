@@ -1,14 +1,14 @@
-const selectButton = document.getElementById("order-by");
-const listbox = document.querySelector("#listbox-order-media");
+const selectButton = document.querySelector(".select_button");
+const listbox = document.querySelector(".listbox");
 const options = document.querySelectorAll(".order-media");
 const mediaContainer = document.querySelector(".media-container");
 
 function selectOrder(medias) {
   selectButton.addEventListener("click", () => {
     // If button is collapsed when is clicked
-    if (selectButton.getAttribute("aria-expanded") === "collapsed") {
+    if (selectButton.getAttribute("aria-expanded") === "false") {
       // It becomes expanded
-      selectButton.setAttribute("aria-expanded", "expanded");
+      selectButton.setAttribute("aria-expanded", "true");
       // Remove focus of header and main
       handleFocus();
       // The options becomes focusable according to their
@@ -53,12 +53,14 @@ function selectOrder(medias) {
               break;
           }
 
+          // Replace each child for reorder gallery
           medias.forEach((media, i) => {
             mediaContainer.replaceChild(
               mediaFactory(media).getGalleryCard(),
               mediaContainer.children[i]
             );
           });
+          // And relaunch the script for closeup view and likes
           closeupView();
           like();
         }
@@ -67,7 +69,7 @@ function selectOrder(medias) {
       // and the focus on each option
       handleFocus();
       // We collapsed and focus the button
-      selectButton.setAttribute("aria-expanded", "collapsed");
+      selectButton.setAttribute("aria-expanded", "false");
       selectButton.focus();
     }
   });
@@ -83,3 +85,53 @@ function sortObject(a, b) {
   }
   return 0;
 }
+
+// Key event
+document.addEventListener("keydown", (e) => {
+  if (selectButton.getAttribute("aria-expanded") === "true") {
+    switch (e.code) {
+      case "Escape":
+      case "ArrowLeft":
+        selectButton.focus();
+        selectButton.click();
+        break;
+      case "ArrowDown":
+        e.preventDefault();
+        let nextTab =
+          parseInt(document.activeElement.getAttribute("tabindex")) + 2;
+        options.forEach((option) => {
+          if (option.getAttribute("tabindex") == nextTab) {
+            option.focus();
+          } else if (nextTab > 5 && option.getAttribute("tabindex") == 1) {
+            option.focus();
+          }
+        });
+        break;
+      case "ArrowUp":
+        e.preventDefault();
+        let previousTab =
+          parseInt(document.activeElement.getAttribute("tabindex")) - 2;
+        options.forEach((option) => {
+          if (option.getAttribute("tabindex") == previousTab) {
+            option.focus();
+          } else if (previousTab < 1 && option.getAttribute("tabindex") == 5) {
+            option.focus();
+          }
+        });
+        break;
+      case "ArrowRight":
+        selectButton.click();
+        break;
+      default:
+        options.forEach((option) => {
+          if (e.key.toLowerCase() == option.textContent[0].toLowerCase()) {
+            option.focus();
+          }
+        });
+    }
+  } else {
+    if (document.activeElement === selectButton && e.code === "ArrowRight") {
+      selectButton.click();
+    }
+  }
+});
