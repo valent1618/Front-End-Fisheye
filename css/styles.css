@@ -322,7 +322,7 @@ button {
   gap: 50px;
   color: #901c1c;
 }
-.gallery-card .info-container .img-title,
+.gallery-card .info-container .media-title,
 .gallery-card .info-container .like-number {
   margin: 10px 0;
 }
