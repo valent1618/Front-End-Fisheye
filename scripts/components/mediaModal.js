@@ -4,7 +4,7 @@ const modal = document.getElementById("media_modal");
 const arrows = document.querySelectorAll(".media-arrow");
 const article = document.getElementById("article-closeup");
 const image = document.getElementById("img-closeup");
-const imageTitle = document.getElementById("img-closeup-title");
+const imageTitle = document.getElementById("media-closeup-title");
 
 // create video
 const vid = document.createElement("video");

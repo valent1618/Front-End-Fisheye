@@ -9,7 +9,7 @@ export function mediaFactory(data) {
   // create article
   const article = document.createElement("article");
   article.className = "gallery-card";
-  article.setAttribute("aria-describedby", `img-title-${id}`);
+  article.setAttribute("aria-describedby", `media-title-${id}`);
 
   // create a for link to lightbox
   const link = document.createElement("a");
@@ -36,8 +36,8 @@ export function mediaFactory(data) {
   // create h3 for the title
   const imgTitle = document.createElement("h3");
   imgTitle.textContent = title;
-  imgTitle.className = "img-title";
-  imgTitle.id = `img-title-${id}`;
+  imgTitle.className = "media-title";
+  imgTitle.id = `media-title-${id}`;
   imgTitle.setAttribute("aria-label", "Titre de l'image");
 
   // create div for the like container
