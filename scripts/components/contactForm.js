@@ -1,3 +1,5 @@
+import { modalEvent } from "./modal.js";
+
 const dialog = document.querySelector(".dialog-contact");
 const form = document.querySelector(".contact-form");
 
@@ -30,5 +32,8 @@ export function submitFormEvent() {
     // Add the thanks message and the close button
     dialog.appendChild(thanksMessage);
     dialog.appendChild(closeButton);
+
+    // Relaunch the modal event for the close button
+    modalEvent();
   });
 }
