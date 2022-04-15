@@ -52,15 +52,27 @@ export function modalEvent() {
   const displayModalButtons = document.querySelectorAll(".display-modal");
   const closeModalButtons = document.querySelectorAll(".close-modal");
 
+  // Detect click on button for launch display or close modal
+  // Add attribute for not listening twice the same button when relaunch the script
   displayModalButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      displayModal(button.getAttribute("modal"));
-    });
+    if(button.getAttribute("modalEventCall")) {
+      return;
+    } else {
+      button.addEventListener("click", () => {
+        displayModal(button.getAttribute("modal"));
+      });
+    }
+    button.setAttribute("modalEventCall", "true");
   });
   closeModalButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      closeModal(button.getAttribute("modal"));
-    });
+    if(button.getAttribute("modalEventCall")) {
+      return;
+    } else {
+      button.addEventListener("click", () => {
+        closeModal(button.getAttribute("modal"));
+      });
+    }
+    button.setAttribute("modalEventCall", "true");
   });
 
   // Key event
