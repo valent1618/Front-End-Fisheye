@@ -302,6 +302,7 @@ button {
 
 .gallery-card {
   width: 350px;
+  transition: order 0s;
 }
 .gallery-card img,
 .gallery-card video {
