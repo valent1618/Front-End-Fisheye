@@ -19,16 +19,19 @@ export function closeupView() {
       e.preventDefault();
 
       // Change links for arrows
-      if (links[i - 1]) {
-        arrows[0].setAttribute("href", links[i - 1].href);
-      } else {
-        arrows[0].setAttribute("href", links[links.length - 1].href);
-      }
-      if (links[i + 1]) {
-        arrows[1].setAttribute("href", links[i + 1].href);
-      } else {
-        arrows[1].setAttribute("href", links[0].href);
-      }
+      links.forEach((findLink) => {
+        let dif = link.parentElement.style.order - findLink.parentElement.style.order;
+        switch(dif) {
+          case 1:
+          case -(links.length - 1):
+            arrows[0].setAttribute("href", findLink.href);
+            break;
+          case -1:
+          case links.length - 1:
+            arrows[1].setAttribute("href", findLink.href);
+            break;
+        }
+      })
 
       let isImage = true;
       if (link.getAttribute("media") === "image") {
@@ -42,12 +45,12 @@ export function closeupView() {
       }
 
       // Replace the title
-      imageTitle.textContent = link.title;
+      imageTitle.textContent = link.parentElement.title;
 
       // Replace the media
       article.replaceChild(isImage ? image : vid, article.children[0]);
 
-      // Replace the article
+      // Replace the article for launch animation
       article.parentNode.replaceChild(article, article);
 
       // Display the modal if it is not already open

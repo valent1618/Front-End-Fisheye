@@ -1,5 +1,5 @@
-export function mediaFactory(data) {
-  const { id, photographerId, title, image, video, likes } = data;
+export function mediaFactory(data, i) {
+  const { id, photographerId, title, image, video, likes, date } = data;
 
   // Create variable source depend of the media
   let source = image
@@ -10,12 +10,15 @@ export function mediaFactory(data) {
   const article = document.createElement("article");
   article.className = "gallery-card";
   article.setAttribute("aria-describedby", `media-title-${id}`);
+  article.setAttribute("likes", likes);
+  article.setAttribute("date", date);
+  article.setAttribute("title", title);
+  article.style.order = i;
 
   // create a for link to lightbox
   const link = document.createElement("a");
   link.setAttribute("href", source);
   link.setAttribute("media", image ? "image" : "video");
-  link.setAttribute("title", title);
   link.setAttribute("aria-label", `${title}, vue rapprochée`);
   link.className = "media-link";
 

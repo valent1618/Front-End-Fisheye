@@ -1,14 +1,11 @@
 import { handleFocus } from "../utils/handleFocus.js";
-import { mediaFactory } from "../factories/media.js";
-import { closeupView } from "../components/mediaModal.js";
-import { like } from "../components/like.js";
 
 const selectButton = document.querySelector(".select_button");
 const listbox = document.querySelector(".listbox");
 const options = document.querySelectorAll(".order-media");
 const mediaContainer = document.querySelector(".media-container");
 
-export function selectOrder(medias) {
+export function selectOrder() {
   selectButton.addEventListener("click", () => {
     // If button is collapsed when is clicked
     if (selectButton.getAttribute("aria-expanded") === "false") {
@@ -45,6 +42,15 @@ export function selectOrder(medias) {
           // We change his order
           option.style.order = "1";
 
+          // Create array of medias
+          // with the good number of likes
+          let medias = [];
+          for(let i=0; i < mediaContainer.children.length; i++) {
+            medias.push({"likes": mediaContainer.children[i].children[1].children[1].children[0].textContent,
+          "date": mediaContainer.children[i].getAttribute("date"),
+          "title": mediaContainer.children[i].getAttribute("title")});
+          }
+
           // Sort medias
           switch (option.id) {
             case "popularity":
@@ -58,16 +64,14 @@ export function selectOrder(medias) {
               break;
           }
 
-          // Replace each child for reorder gallery
-          medias.forEach((media, i) => {
-            mediaContainer.replaceChild(
-              mediaFactory(media).getGalleryCard(),
-              mediaContainer.children[i]
-            );
-          });
-          // And relaunch the script for closeup view and likes
-          closeupView();
-          like();
+          // Change order of the gallery
+          for(let i=0; i < mediaContainer.children.length; i++) {
+            medias.forEach((media, j) => {
+              if(media.title === mediaContainer.children[i].getAttribute("title")) {
+                mediaContainer.children[i].style.order = j;
+              }
+            })
+          }
         }
       });
       // Remove tabindex who block focus on header and main

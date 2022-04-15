@@ -51,8 +51,8 @@ async function displayData(photographer, medias) {
   // Completed the gallery with the data
   // and count the total likes
   let totalLikes = 0;
-  medias.forEach((media) => {
-    mediaContainer.appendChild(mediaFactory(media).getGalleryCard());
+  medias.forEach((media, i) => {
+    mediaContainer.appendChild(mediaFactory(media, i).getGalleryCard());
     totalLikes += media.likes;
   });
 
@@ -65,13 +65,13 @@ async function displayData(photographer, medias) {
   contactTitle.innerHTML = `Contactez-moi<br>${photographer.name}`;
 }
 
-function launchScript(medias) {
+function launchScript() {
   // Launch script for modal event
   modalEvent();
   // Launch script for contact form
   submitFormEvent();
   // Launch script for the button select order
-  selectOrder(medias);
+  selectOrder();
   // Launch scripts for the media modal
   closeupView();
   mediaModalEvent();
@@ -85,7 +85,7 @@ async function init() {
   // And display it
   displayData(goodPhotographer, goodMedias);
   // Launch scripts
-  launchScript(goodMedias);
+  launchScript();
 }
 
 init();
