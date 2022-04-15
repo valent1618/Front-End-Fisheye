@@ -43,7 +43,7 @@ export function photographerFactory(data) {
     const link = document.createElement("a");
     link.className = "link";
     link.setAttribute("href", `pages/photographer.html?id=${id}`);
-    link.setAttribute("aria-labelledby", "name");
+    link.setAttribute("aria-labelledby", `name-${id}`);
 
     // change source for index
     img.setAttribute("src", `assets/photographers/${portrait}`);
@@ -51,7 +51,7 @@ export function photographerFactory(data) {
     // create h2 for the name
     const h2 = document.createElement("h2");
     h2.textContent = name;
-    h2.setAttribute("id", "name");
+    h2.setAttribute("id", `name-${id}`);
 
     // Put image and h2 into the link
     link.appendChild(img);
