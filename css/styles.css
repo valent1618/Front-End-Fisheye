@@ -244,29 +244,29 @@ button {
   transform-origin: 7px 3.5px;
   transform: rotate(135deg);
 }
-.select-order .select_button:hover, .select-order .select_button:focus {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
-}
-.select-order .select_button[aria-expanded=false] .listbox div, .select-order .select_button[aria-expanded=false] .listbox hr {
+.select-order .select_button .listbox[aria-expanded=false] div, .select-order .select_button .listbox[aria-expanded=false] hr {
   display: none;
 }
-.select-order .select_button[aria-expanded=false] .listbox div[aria-selected=true] {
+.select-order .select_button .listbox[aria-expanded=false] div[aria-selected=true] {
   display: block;
 }
-.select-order .select_button[aria-expanded=true] {
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
-}
-.select-order .select_button[aria-expanded=true] .listbox {
+.select-order .select_button .listbox[aria-expanded=true] {
   gap: 12px;
 }
-.select-order .select_button[aria-expanded=true] .listbox div, .select-order .select_button[aria-expanded=true] .listbox hr {
+.select-order .select_button .listbox[aria-expanded=true] div, .select-order .select_button .listbox[aria-expanded=true] hr {
   display: block;
 }
-.select-order .select_button[aria-expanded=true] .listbox div:hover, .select-order .select_button[aria-expanded=true] .listbox div:focus, .select-order .select_button[aria-expanded=true] .listbox hr:hover, .select-order .select_button[aria-expanded=true] .listbox hr:focus {
+.select-order .select_button .listbox[aria-expanded=true] div:hover, .select-order .select_button .listbox[aria-expanded=true] div:focus, .select-order .select_button .listbox[aria-expanded=true] hr:hover, .select-order .select_button .listbox[aria-expanded=true] hr:focus {
   opacity: 0.8;
 }
-.select-order .select_button[aria-expanded=true]::after {
+.select-order .select_button.expanded {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
+}
+.select-order .select_button.expanded::after {
   transform: rotate(-45deg);
+}
+.select-order .select_button:hover, .select-order .select_button:focus {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.4);
 }
 
 .photograph-header {
