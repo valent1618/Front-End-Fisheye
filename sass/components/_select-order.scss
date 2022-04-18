@@ -66,27 +66,19 @@
       transform-origin: 7px 3.5px;
       transform: rotate(135deg);
     }
-
-    &:hover, &:focus {
-      box-shadow: 0 3px 3px $color-shadow;
+    
+    .listbox[aria-expanded="false"] {
+      div, hr {
+        display: none;
+      }
+      div[aria-selected="true"] {
+        display: block;
+      }
     }
-  }
 
-  .select_button[aria-expanded="false"] .listbox {
-    div, hr {
-      display: none;
-    }
-    div[aria-selected="true"] {
-      display: block;
-    }
-  }
-
-  .select_button[aria-expanded="true"] {
-    box-shadow: 0 3px 3px $color-shadow;
-
-    .listbox {
+    .listbox[aria-expanded="true"] {
       gap: 12px;
-      
+
       div, hr {
         display: block;
   
@@ -95,9 +87,17 @@
         }
       }
     }
+    
+    &.expanded {
+      box-shadow: 0 3px 3px $color-shadow;
 
-    &::after {
-      transform: rotate(-45deg);
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:hover, &:focus {
+      box-shadow: 0 3px 3px $color-shadow;
     }
   }
 }
