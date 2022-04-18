@@ -343,7 +343,7 @@ button {
   font-size: 24px;
   color: #901c1c;
 }
-.heart i {
+.heart span {
   position: absolute;
   top: 0;
   left: 0;
@@ -440,12 +440,12 @@ button {
 }
 #contact_modal .dialog-contact header #contact-title {
   margin: 0;
-  line-height: 1.1;
   color: black;
-  font-size: 64px;
-  font-weight: normal;
 }
-#contact_modal .dialog-contact header button .arrow {
+#contact_modal .dialog-contact header .close_button {
+  margin-top: 0.5em;
+}
+#contact_modal .dialog-contact header .close_button .arrow {
   border-color: white;
 }
 #contact_modal .dialog-contact form {
@@ -526,9 +526,10 @@ button {
   object-fit: contain;
   max-height: calc(80vh - 60px);
 }
-#media_modal .nav-media-container article h3 {
+#media_modal .nav-media-container article h2 {
   color: #901c1c;
   margin: 15px;
+  font-size: 24px;
 }
 #media_modal button {
   position: absolute;
