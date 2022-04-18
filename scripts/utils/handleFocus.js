@@ -1,11 +1,18 @@
 // Handle focus on elements and their children
 function recursiveUnfocusable(el) {
-  el.setAttribute("tabindex", "-1");
-  [...el.children].forEach(recursiveUnfocusable);
+  if(el.getAttribute("tabindex")) {
+    el.setAttribute("OldTabIndex", el.getAttribute("tabindex"))
+  }
+    el.setAttribute("tabindex", "-1");
+    [...el.children].forEach(recursiveUnfocusable);
 }
 function recursiveFocusable(el) {
-  el.removeAttribute("tabindex");
-  [...el.children].forEach(recursiveFocusable);
+  if(el.getAttribute("OldTabIndex")) {
+    el.setAttribute("tabindex", el.getAttribute("OldTabIndex"))
+  } else {
+    el.removeAttribute("tabindex");
+    [...el.children].forEach(recursiveFocusable);
+  }
 }
 // Handle focus on header and main
 // Set attribute aria-hidden
