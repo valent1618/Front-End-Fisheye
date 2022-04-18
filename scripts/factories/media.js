@@ -57,8 +57,8 @@ export function mediaFactory(data) {
   heart.className = "heart";
   heart.setAttribute("fav", "false");
   heart.innerHTML = `
-    <i class="fa-regular fa-heart"></i>
-    <i class="fa-solid fa-heart"></i>`;
+    <span class="fa-regular fa-heart"></span>
+    <span class="fa-solid fa-heart"></span>`;
   heart.setAttribute("aria-label", "J'aime");
 
   function getGalleryCard() {
