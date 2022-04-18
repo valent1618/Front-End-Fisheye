@@ -17,9 +17,13 @@ export function displayModal(thisModal) {
 
   // Focus an element when we display the modal
   if (thisModal === "contact_modal") {
-    document.getElementById("first-name").focus({
-      preventScroll: true,
-    });
+    if(document.querySelector(".submit-response-container").getAttribute("display")){
+      document.querySelector(".close-modal").focus();
+    } else {  
+        document.getElementById("first-name").focus({
+          preventScroll: true,
+        });
+    }
   } else if (thisModal === "media_modal") {
     document.querySelector(".arrow-right").focus();
   }
@@ -55,24 +59,14 @@ export function modalEvent() {
   // Detect click on button for launch display or close modal
   // Add attribute for not listening twice the same button when relaunch the script
   displayModalButtons.forEach((button) => {
-    if(button.getAttribute("modalEventCall")) {
-      return;
-    } else {
       button.addEventListener("click", () => {
         displayModal(button.getAttribute("modal"));
       });
-    }
-    button.setAttribute("modalEventCall", "true");
   });
   closeModalButtons.forEach((button) => {
-    if(button.getAttribute("modalEventCall")) {
-      return;
-    } else {
       button.addEventListener("click", () => {
         closeModal(button.getAttribute("modal"));
       });
-    }
-    button.setAttribute("modalEventCall", "true");
   });
 
   // Key event
