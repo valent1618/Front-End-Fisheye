@@ -1,3 +1,5 @@
+import { like } from "./like.js";
+import { closeupView } from "./mediaModal.js";
 import { handleFocus } from "../utils/handleFocus.js";
 
 const selectButton = document.querySelector(".select_button");
@@ -46,9 +48,12 @@ export function selectOrder() {
           // with the good number of likes
           let medias = [];
           for(let i=0; i < mediaContainer.children.length; i++) {
-            medias.push({"likes": mediaContainer.children[i].children[1].children[1].children[0].textContent,
-          "date": mediaContainer.children[i].getAttribute("date"),
-          "title": mediaContainer.children[i].getAttribute("title")});
+            medias.push({
+              "title": mediaContainer.children[i].getAttribute("title"),
+              "likes": mediaContainer.children[i].children[1].children[1].children[0].textContent,
+              "date": mediaContainer.children[i].getAttribute("date"),
+              "article": mediaContainer.childNodes[i].cloneNode(true)
+            })
           }
 
           // Sort medias
@@ -64,14 +69,16 @@ export function selectOrder() {
               break;
           }
 
-          // Change order of the gallery
-          for(let i=0; i < mediaContainer.children.length; i++) {
-            medias.forEach((media, j) => {
-              if(media.title === mediaContainer.children[i].getAttribute("title")) {
-                mediaContainer.children[i].style.order = j;
-              }
-            })
-          }
+          // Replace each child for reorder gallery
+          medias.forEach((media, i) => {
+            mediaContainer.replaceChild(
+              media.article,
+              mediaContainer.children[i]
+            );
+          });
+          // And relaunch the script for closeup view and likes
+          closeupView();
+          like();
         }
       });
       // Remove tabindex who block focus on header and main

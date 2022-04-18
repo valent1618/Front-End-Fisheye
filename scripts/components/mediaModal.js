@@ -19,19 +19,16 @@ export function closeupView() {
       e.preventDefault();
 
       // Change links for arrows
-      links.forEach((findLink) => {
-        let dif = link.parentElement.style.order - findLink.parentElement.style.order;
-        switch(dif) {
-          case 1:
-          case -(links.length - 1):
-            arrows[0].setAttribute("href", findLink.href);
-            break;
-          case -1:
-          case links.length - 1:
-            arrows[1].setAttribute("href", findLink.href);
-            break;
-        }
-      })
+      if (links[i - 1]) {
+        arrows[0].setAttribute("href", links[i - 1].href);
+      } else {
+        arrows[0].setAttribute("href", links[links.length - 1].href);
+      }
+      if (links[i + 1]) {
+        arrows[1].setAttribute("href", links[i + 1].href);
+      } else {
+        arrows[1].setAttribute("href", links[0].href);
+      }
 
       let isImage = true;
       if (link.getAttribute("media") === "image") {

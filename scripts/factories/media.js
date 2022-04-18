@@ -1,4 +1,4 @@
-export function mediaFactory(data, i) {
+export function mediaFactory(data) {
   const { id, photographerId, title, image, video, likes, date } = data;
 
   // Create variable source depend of the media
@@ -13,7 +13,6 @@ export function mediaFactory(data, i) {
   article.setAttribute("likes", likes);
   article.setAttribute("date", date);
   article.setAttribute("title", title);
-  article.style.order = i;
 
   // create a for link to lightbox
   const link = document.createElement("a");
