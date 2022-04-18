@@ -60,12 +60,12 @@ export function modalEvent() {
   // Add attribute for not listening twice the same button when relaunch the script
   displayModalButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        displayModal(button.getAttribute("modal"));
+        displayModal(button.getAttribute("name"));
       });
   });
   closeModalButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        closeModal(button.getAttribute("modal"));
+        closeModal(button.getAttribute("name"));
       });
   });
 
