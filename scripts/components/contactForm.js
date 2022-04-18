@@ -1,7 +1,6 @@
-import { modalEvent } from "./modal.js";
-
-const dialog = document.querySelector(".dialog-contact");
 const form = document.querySelector(".contact-form");
+const responseContainer = document.querySelector(".submit-response-container");
+const message = document.querySelector(".submit-message");
 
 export function submitFormEvent() {
   form.addEventListener("submit", (e) => {
@@ -13,27 +12,16 @@ export function submitFormEvent() {
       console.log(`${e.target[i].name} : ${e.target[i].value}`);
     }
 
-    // Create the thanks message
-    const thanksMessage = document.createElement("p");
-    thanksMessage.className = "thanks-message";
-    thanksMessage.textContent = `Merci pour votre message ${e.target[0].value}`;
-
-    // Create button for close the modal after the thanks message
-    const closeButton = document.createElement("button");
-    closeButton.className = "button form_button close-modal";
-    closeButton.setAttribute("type", "button");
-    closeButton.setAttribute("modal", "contact_modal");
-    closeButton.setAttribute("alt", "Ferme la modal");
-    closeButton.textContent = "Fermer";
+    // Add message
+    message.textContent = `Merci pour votre message ${e.target[0].value}`;
 
     // Remove the form
     form.style.display = "none";
+    // Display the response
+    responseContainer.style.display = "flex";
+    responseContainer.setAttribute("display", "true");
 
-    // Add the thanks message and the close button
-    dialog.appendChild(thanksMessage);
-    dialog.appendChild(closeButton);
-
-    // Relaunch the modal event for the close button
-    modalEvent();
+    // Focus the close button
+    responseContainer.querySelector(".close-modal").focus();    
   });
 }
