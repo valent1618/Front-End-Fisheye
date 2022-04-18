@@ -24,13 +24,12 @@
 
       #contact-title {
         margin: 0;
-        line-height: 1.1;
         color: black;
-        font-size: 64px;
-        font-weight: normal;
       }
 
-      button {
+      .close_button {
+        margin-top: 0.5em;
+
         .arrow {
           border-color: white;
         }
