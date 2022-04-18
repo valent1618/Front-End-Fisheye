@@ -9,10 +9,11 @@ const mediaContainer = document.querySelector(".media-container");
 
 export function selectOrder() {
   selectButton.addEventListener("click", () => {
-    // If button is collapsed when is clicked
-    if (selectButton.getAttribute("aria-expanded") === "false") {
+    // If listbox is collapsed when is clicked
+    if (listbox.getAttribute("aria-expanded") === "false") {
       // It becomes expanded
-      selectButton.setAttribute("aria-expanded", "true");
+      selectButton.classList.add("expanded");
+      listbox.setAttribute("aria-expanded", "true");
       // Remove focus of header and main
       handleFocus();
       // The options becomes focusable according to their
@@ -22,7 +23,7 @@ export function selectOrder() {
         option.getAttribute("tabindex") === "1" && option.focus();
       });
     } else {
-      // If button is expanded when is clicked
+      // If listbox is expanded when is clicked
       let saveOrder;
       options.forEach((option) => {
         // And if the target is an option
@@ -47,13 +48,13 @@ export function selectOrder() {
           // Create array of medias
           // with the good number of likes
           let medias = [];
-          for(let i=0; i < mediaContainer.children.length; i++) {
+          for (let i = 0; i < mediaContainer.children.length; i++) {
             medias.push({
               "title": mediaContainer.children[i].getAttribute("title"),
               "likes": mediaContainer.children[i].children[1].children[1].children[0].textContent,
               "date": mediaContainer.children[i].getAttribute("date"),
-              "article": mediaContainer.childNodes[i].cloneNode(true)
-            })
+              "article": mediaContainer.childNodes[i].cloneNode(true),
+            });
           }
 
           // Sort medias
@@ -85,7 +86,8 @@ export function selectOrder() {
       // and the focus on each option
       handleFocus();
       // We collapsed and focus the button
-      selectButton.setAttribute("aria-expanded", "false");
+      selectButton.classList.remove("expanded");
+      listbox.setAttribute("aria-expanded", "false");
       selectButton.focus();
     }
   });
@@ -93,7 +95,7 @@ export function selectOrder() {
   // Key event
   document.addEventListener("keydown", (e) => {
     let nextTab, previousTab;
-    if (selectButton.getAttribute("aria-expanded") === "true") {
+    if (listbox.getAttribute("aria-expanded") === "true") {
       switch (e.code) {
         case "Escape":
         case "ArrowLeft":
@@ -127,18 +129,24 @@ export function selectOrder() {
             }
           });
           break;
+        case "Enter":
         case "ArrowRight":
           selectButton.click();
           break;
         default:
+          console.log(e.key);
           options.forEach((option) => {
             if (e.key.toLowerCase() == option.textContent[0].toLowerCase()) {
+              console.log("yes");
               option.focus();
             }
           });
       }
     } else {
-      if (document.activeElement === selectButton && e.code === "ArrowRight") {
+      if (
+        document.activeElement === selectButton &&
+        (e.code === "ArrowRight" || e.code === "Enter")
+      ) {
         selectButton.click();
       }
     }
