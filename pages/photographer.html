@@ -31,26 +31,27 @@
       </a>
     </header>
     <main id="main">
-      <section class="photograph-header">
+      <div class="photograph-header">
         <button
           class="button contact_button display-modal"
-          modal="contact_modal"
+          name="contact_modal"
         >
           Contactez-moi
         </button>
-      </section>
-      <section class="media-section">
+      </div>
+      <div class="media-section">
         <div class="select-order">
           <span id="label-select">Trier par</span>
-          <button
+          <div
             class="button select_button"
             aria-labelledby="label-select"
-            aria-expanded="false"
-            aria-haspopup="listbox"
+            tabindex="0"
           >
             <div
               class="listbox"
               role="listbox"
+              aria-expanded="false"
+              aria-haspopup="listbox"
               aria-activedescendant="popularity"
             >
               <div
@@ -58,35 +59,29 @@
                 id="popularity"
                 class="order-media"
                 aria-selected="true"
-              >
-                Popularité
-              </div>
+              >Popularité</div>
               <hr class="sep-first" />
               <div
                 role="option"
                 id="date"
                 class="order-media"
                 aria-selected="false"
-              >
-                Date
-              </div>
+              >Date</div>
               <hr class="sep-second" />
               <div
                 role="option"
                 id="title"
                 class="order-media"
                 aria-selected="false"
-              >
-                Titre
-              </div>
+              >Titre</div>
             </div>
-          </button>
+          </div>
         </div>
-        <div class="media-container" aria-label="Galerie"></div>
-      </section>
+        <div class="media-container"></div>
+      </div>
       <div class="like-price">
         <div>
-          <h3 class="total-likes" aria-label="Nombre total de likes"></h3>
+          <h3 class="total-likes" aria-label="Nombre total de likes">0</h3>
           <i class="fa-solid fa-heart"></i>
         </div>
       </div>
@@ -97,7 +92,7 @@
           <h1 id="contact-title">Contactez-moi</h1>
           <button
             class="close_button close-modal"
-            modal="contact_modal"
+            name="contact_modal"
             aria-label="Ferme la modal"
           >
             <span class="arrow cross-arrow-left"></span>
@@ -127,7 +122,14 @@
         </form>
         <div class="submit-response-container">
           <p class="submit-message"></p>
-          <button class="button form_button close-modal" type="button" modal="contact_modal" alt="Ferme la modal">Fermer</button>
+          <button
+            class="button form_button close-modal"
+            type="button"
+            name="contact_modal"
+            aria-label="Ferme la modal"
+          >
+            Fermer
+          </button>
         </div>
       </dialog>
     </div>
@@ -135,7 +137,7 @@
       <dialog class="dialog-media" aria-label="Image en vue rapprochée">
         <button
           class="close_button close-modal"
-          modal="media_modal"
+          name="media_modal"
           aria-label="Ferme la modal"
         >
           <span class="arrow cross-arrow-left"></span>
@@ -147,8 +149,8 @@
             aria-label="Affiche le media précédent"
           ></a>
           <article id="article-closeup" aria-describedby="media-closeup-title">
-            <img id="img-closeup" />
-            <h3 id="media-closeup-title"></h3>
+            <img id="img-closeup" src="../assets/favicon.png" alt="" />
+            <h3 id="media-closeup-title">Favicon</h3>
           </article>
           <a
             class="arrow arrow-right media-arrow"
