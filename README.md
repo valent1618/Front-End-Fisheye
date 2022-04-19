@@ -21,7 +21,7 @@ You need a browser and run a local server
 
 ### Installing
 
-You can remove -g from command line to install dependencies locally and not globally
+*You can remove -g from command line to install dependencies locally and not globally*
 
 1. First, you need to **clone this repo** with the command
 
