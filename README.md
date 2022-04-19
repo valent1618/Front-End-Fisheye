@@ -23,19 +23,21 @@ You need a browser and run a local server
 
 You can remove -g from command line to install dependencies locally and not globally
 
-1. First, you need to clone this repo with the command
+1. First, you need to **clone this repo** with the command
 
 ```
 git clone https://github.com/valent1618/Front-End-Fisheye.git
 ```
 
-2. Check if you have the latest version of NodeJs and npm
+2. Check if you have the latest version of **NodeJs and npm**
 
 ```
 node -v && npm -v
 ```
 
-Or install it --> https://nodejs.org/en/ 3. Install live-server
+Or install it : <https://nodejs.org/en/>
+
+3. Install **live-server**
 
 ```
 npm install -g live-server
@@ -43,7 +45,7 @@ npm install -g live-server
 
 #### Optional
 
-- Install Sass
+- Install **Sass**
 
 ```
 npm install -g sass
@@ -51,10 +53,10 @@ npm install -g sass
 
 ### Executing local server
 
-- Move on your repo and run
+- Move on your repo and **run**
 
 ```
 live-server
 ```
 
-That's it !
+**That's it !**
