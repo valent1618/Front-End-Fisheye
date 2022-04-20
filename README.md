@@ -1,6 +1,4 @@
-# Project Title
-
-Fisheye
+# Fisheye
 
 ## Description
 
