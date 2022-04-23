@@ -7,17 +7,16 @@ Designed for everyone, including the visually impaired.
 
 > This is the sixth project of the formation "Développeur d'application - JavaScript React" - OpenClassrooms
 
-## Getting Started
-
 ### Demo
 
 <https://valent1618.github.io/Front-End-Fisheye/>
 
+## Getting Started
+
 ### Dependencies
 
-You need a browser and run a local server
+You need to run a local server
 
-- Google Chrome (browser)
 - NodeJs, NPM, live-server (local server)
 - Sass (for css changes)
 
@@ -25,7 +24,7 @@ You need a browser and run a local server
 
 *You can remove -g from command line to install dependencies locally and not globally*
 
-1. First, you need to **clone this repo** with the command
+1. **Clone this repo** with the command
 
 ```
 git clone https://github.com/valent1618/Front-End-Fisheye.git
